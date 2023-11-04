@@ -1,0 +1,6 @@
+[book]
+authors = ["Szymon Błaszczyński"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Hacking with a Dream in the Mind"

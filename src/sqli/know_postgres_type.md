@@ -1,0 +1,5 @@
+# PostgreSQL
+
+```sql
+SELECT version()
+```
