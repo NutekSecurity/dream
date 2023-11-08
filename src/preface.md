@@ -13,5 +13,7 @@ writing a resume to land a real job. You choose!
 
 Szymon and 🎶
 
+> Szymon Błaszczyński ©️ 2023
+
 
 <iframe src="https://github.com/sponsors/nutek-terminal/card" title="Sponsor nutek-terminal" height="225" width="600" style="border: 0;"></iframe>

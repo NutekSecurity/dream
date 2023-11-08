@@ -254,3 +254,6 @@ Here are some key aspects of DNS security:
 
 DNS security is crucial in maintaining the overall security and stability of the internet. Organizations and internet service providers should take steps to implement these security measures to protect against DNS-related threats and vulnerabilities.
 
+## DNS system weakness.
+
+If most of the DNS servers on the web start to propagate false DNS data, most other DNS servers will pick it up at some point, cutting out the world from the world wide web, leaving only IP website host resolutions enabled. This is called a DNS hijacking attack. It is a type of attack where an attacker takes control of a domain name server (DNS) and changes the IP address associated with a domain name. This allows the attacker to redirect users to a malicious website or to intercept their communications.
