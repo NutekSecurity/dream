@@ -33,10 +33,9 @@ it is not as good as VSCode.
 You can also use [Neovim](https://neovim.io/), but it's not for everyone. 
 It's a bit more complicated to use, but it's very powerful. You can use it with
 [Alacritty](https://alacritty.org/) or [Kitty](https://sw.kovidgoyal.net/kitty/).
-It also works with [Warp](https://www.warp.dev/) and [iTerm2](https://iterm2.
-com/), Terminal.app also is capable of running Neovim. The difference between 
+It also works with [Warp](https://www.warp.dev/) and [iTerm2](https://iterm2.com/), Terminal.app also is capable of running Neovim. The difference between 
 VS Code and Neovim is that Neovim is a terminal based text editor. This means 
-that you can use it in the terminal and you can use it in the GUI. It's also 
+that one you can use in the terminal and the other you can use in the GUI (normal system window). It's also 
 very fast and responsive.
 
 ## Get yourself good browser
@@ -77,21 +76,27 @@ identity. __Don't tell me that I didn't warn you__.
         - tmux mouse support - `echo "set -g mouse on" >> ~/.tmux.conf`
 - Warp (Terminal) - in nutek-apple.rb
 - Neovim (Text Editor) - Vim is included in macOS as default
-- Firefox (Browser)
-- Opera GX (Browser)
-- Google Chrome (Browser)
+    - Coc (Vim Plugin)
+    - Vim Plug (Vim Plugin Manager)
+- Firefox (Browser) - in nutek-apple.rb
+- Opera GX (Browser) - web browser that has a lot of features (Spotify, Messanger, WhatsApp, X, etc.)
 - Homebrew (Package Manager) - in nutek-apple.rb
 - ExpressVPN (VPN)
 - VS Code (Text Editor)
 - Python3 (Programming Language) - default in macOS, recommended to use
-pyenv and pyenv-virtualenv to install newer version
+pyenv and pyenv-virtualenv to install newer version, use with matplotlib, numpy, pandas, sympy and jupyter for data science
 - Ruby (Programming Language) - default in macOS, recommended to use rbenv
-to install newer version
-- Rust (Programming Language)
-- Podman (Container Engine) - in nutek-apple.rb
-    - Podman Desktop (GUI for Podman) - in nutek-apple.rb
+to install newer version, use with rails, sinatra, jekyll, etc.
+- Rust (Programming Language), recommended to use rustup to install and use it to create CLI tools for example
+- Go (Programming Language), recommended to use goenv to install and use it to create CLI tools for example
+- One of the below:    
+    - Podman (Container Engine) - in nutek-apple.rb
+        - Podman Desktop (GUI for Podman) - in nutek-apple.rb
+    - Docker (Container Engine) - in nutek-apple.rb
 - Trello (Project Management) - AppStore
-- Bard, ChatGPT and GitHub Copilot (AI)
+- Bard, ChatGPT and GitHub Copilot (AI) - __think__ before you enter anything into the prompt engine, don't let the data leak out, your data is your data, don't let anyone use it against you and others.
+- JavaScript programming language prefferably installed using nvm (Node.js) - to build upon read materials and probably make webapps, D3.js, etc.
+- Wireshark (Network Analyzer) - in nutek-apple.rb
 
 
 I think you catched the drift. I use everything that is in nutek-apple.rb.
