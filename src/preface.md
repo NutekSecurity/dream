@@ -1,3 +1,5 @@
+![Dream](dream.png)
+
 # Preface
 
 ## Hej!
@@ -44,4 +46,4 @@ for the course.
 
 > Szymon Bronisław Błaszczyński ©️ 2023
 
-<iframe src="https://github.com/sponsors/nutek-terminal/card" title="Sponsor nutek-terminal" height="225" width="600" style="border: 0;"></iframe>
+<iframe src="https://github.com/sponsors/NutekSecurity/card" title="Sponsor nutek-terminal" height="225" width="600" style="border: 0;"></iframe>
