@@ -203,3 +203,72 @@ TCP Urgent Pointer
 
 The TCP Urgent Pointer is used to send urgent data to a device.
 
+DNS or Domain Name Service protocol is used to resolves names with IP addresses.
+
+There are a couple of things outlined below that you should keep in the back of your mind when analyzing DNS packets.
+
+- Query-Response
+- DNS-Servers Only
+- UDP
+
+If anyone of these is out of place then the packets should be looked at further and should be considered suspicious.
+
+Instantly looking at the packets we can see what they are querying, this can be useful when you have many packets and need to identify suspicious or unusual traffic quickly.
+
+DNS Query
+
+The DNS Query packet is used to request the IP address of a domain name.
+
+Looking at the below query we really have two bits of information that we can use to analyze the packet. The first bit of information we can look at is where the query is originating from, in this case, it is UDP 53 which means that this packet passes that check, if it was TCP 53 then it should be considered suspicious traffic and needs to analyzed further. We can also look at what it is querying as well, this can be useful with other information to build a story of what happened.
+
+DNS Response
+
+The DNS Response packet is used to respond to a DNS Query packet.
+
+Below we see a response packet, it is similar to the query packet, but it includes an answer as well which can be used to verify the query.
+
+DNS Query and Response
+
+The DNS Query and Response packet is used to request the IP address of a domain name and respond to the request.
+
+HTTP or Hypertext Transfer Protocol is a commonly used port for the world wide web and used by some websites, however, its encrypted counterpart: HTTPS is more common which we will discuss in the next text. HTTP is used to send GET and POST requests to a web server in order to receive things like webpages. Knowing how to analyze HTTP can be helpful to quickly spot things like SQLi, Web Shells, and other web-related attack vectors.
+
+HTTP is one of the most straight forward protocols for packet analysis, the protocol is straight to the point and does not include any handshakes or prerequisites before communication.
+
+Above we can see a sample HTTP packet, looking at an HTTP packet we can easily gather information since the data stream is not encrypted like the HTTP counterpart HTTPS. Some of the important information we can gather from the packet is the Request URI, File Data, Server.
+
+Now that we understand the basic structure of an HTTP packet we can move on to looking at a sample HTTP packet capture to get hands-on with the packets.
+
+From this packet we can identify some very important information like the host, user-agent, requested URI, and response.
+
+HTTPS or Hypertext Transfer Protocol Secure is the encrypted counterpart to HTTP. It is used to send GET and POST requests to a web server in order to receive things like webpages. Knowing how to analyze HTTPS can be helpful to quickly spot things like SQLi, Web Shells, and other web-related attack vectors.
+
+HTTPS or Hypertext Transfer Protocol Secure can be one of the most annoying protocols to understand from a packet analysis perspective and can be confusing to understand the steps needed to take in order to analyze HTTPS packets.
+
+The first thing to understand is that HTTPS is encrypted, this means that the data stream is not visible to the naked eye and will need to be decrypted in order to analyze the packets.
+
+The first step to decrypting HTTPS packets is to obtain the private key of the server that you are analyzing. This can be done by asking the server owner for the private key or by using a tool like RSA NetWitness to decrypt the packets.
+
+Once you have the private key you can use RSA NetWitness to decrypt the packets and analyze them.
+
+From this packet we can identify some very important information like the host, user-agent, requested URI, and response.
+
+HTTPS Traffic Overview
+
+Before sending encrypted information the client and server need to agree upon various steps in order to make a secure tunnel.
+
+- Client and server agree on a protocol version
+- Client and server select a cryptographic algorithm
+- The client and server can authenticate to each other; this step is optional
+- Creates a secure tunnel with a public key
+
+We can begin analyzing HTTPS traffic by looking at packets for the handshake between the client and the server. Below is a Client Hello packet showing the SSLv2 Record Layer, Handshake Type, and SSL Version.
+
+Below is the Server Hello packet sending similar information as the Client Hello packet however this time it includes session details and SSL certificate information
+
+Below is the Client Key Exchange packet, this packet is used to send the pre-master secret to the server.
+
+Below is the Client Key Exchange packet, this part of the handshake will determine the public key to use to encrypt further messages between the Client and Server.
+
+In the next packet, the server will confirm the public key and create the secure tunnel, all traffic after this point will be encrypted based on the agreed-upon specifications listed above.
+
