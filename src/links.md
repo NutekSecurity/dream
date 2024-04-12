@@ -10,3 +10,4 @@ https://www.exploit-db.com/
 
 https://www.ired.team/
 
+linPEAS
