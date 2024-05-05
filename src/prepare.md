@@ -38,6 +38,9 @@ VS Code and Neovim is that Neovim is a terminal based text editor. This means
 that one you can use in the terminal and the other you can use in the GUI (normal system window). It's also 
 very fast and responsive.
 
+Right now the new upcoming text editor is [Zed](https://zed.dev/). It's made in Rust and it's very fast and responsive. It's also very powerful. It's also free and open source.
+
+
 ## Get yourself good browser
 
 I recommend [Firefox](https://www.mozilla.org/en-US/firefox/new/). It is
