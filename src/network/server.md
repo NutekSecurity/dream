@@ -71,4 +71,70 @@ If you are considering using a network server, there are a few things you should
 * **Complexity:** Network servers can be complex to configure and manage.
 * **Security:** Network servers need to be properly secured to protect them from attack.
 
-Overall, network servers can provide a number of benefits for businesses and organizations. However, it is important to weigh the costs and benefits before deciding whether to implement a network server.
+Overall, network servers can provide a number of benefits for businesses and organizations. However, it is important to weigh the costs and benefits before deciding whether to implement a network server.## Servers
+
+A server is a computer that is dedicated to providing services to other computers. These services can include things like:
+
+* **File storage:** Storing files that can be accessed by other computers on the network.
+* **Web hosting:** Making websites accessible to users on the internet.
+* **Email:** Sending and receiving email messages.
+* **Database management:** Storing and managing data for applications.
+* **Game hosting:** Running online games for multiple players.
+
+Servers typically have more powerful hardware than personal computers, such as faster processors, more memory, and larger storage capacity. This is because they need to be able to handle the demands of multiple users accessing the server simultaneously.
+
+There are many different types of servers, depending on the purpose they serve. Some common types of servers include:
+
+* **Web server:** A server that hosts websites and makes them accessible to users on the internet.
+* **Database server:** A server that stores and manages data for applications.
+* **Mail server:** A server that sends and receives email messages.
+* **File server:** A server that stores files that can be accessed by other computers on the network.
+* **Game server:** A server that runs online games for multiple players.
+
+In addition to the hardware, servers also run specialized software called operating systems. These operating systems are designed to manage the server's resources and provide services to other computers. Some common server operating systems include:
+
+* Linux
+* Windows Server
+* macOS Server
+* FreeBSD
+
+Servers can be located in a variety of places, including:
+
+* **Data centers:** Large facilities that house multiple servers.
+* **Cloud:** Virtual servers that are hosted on the internet.
+* **On-premises:** Servers that are located in a company's own facility.
+
+
+## Servers
+
+A server is a computer that is dedicated to providing services to other computers. These services can include things like:
+
+* **File storage:** Storing files that can be accessed by other computers on the network.
+* **Web hosting:** Making websites accessible to users on the internet.
+* **Email:** Sending and receiving email messages.
+* **Database management:** Storing and managing data for applications.
+* **Game hosting:** Running online games for multiple players.
+
+Servers typically have more powerful hardware than personal computers, such as faster processors, more memory, and larger storage capacity. This is because they need to be able to handle the demands of multiple users accessing the server simultaneously.
+
+There are many different types of servers, depending on the purpose they serve. Some common types of servers include:
+
+* **Web server:** A server that hosts websites and makes them accessible to users on the internet.
+* **Database server:** A server that stores and manages data for applications.
+* **Mail server:** A server that sends and receives email messages.
+* **File server:** A server that stores files that can be accessed by other computers on the network.
+* **Game server:** A server that runs online games for multiple players.
+
+In addition to the hardware, servers also run specialized software called operating systems. These operating systems are designed to manage the server's resources and provide services to other computers. Some common server operating systems include:
+
+* Linux
+* Windows Server
+* macOS Server
+* FreeBSD
+
+Servers can be located in a variety of places, including:
+
+* **Data centers:** Large facilities that house multiple servers.
+* **Cloud:** Virtual servers that are hosted on the internet.
+* **On-premises:** Servers that are located in a company's own facility.
+

@@ -1,0 +1,30 @@
+name: Deploy book to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mdbook
+        run: |
+          mkdir bin
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.30/mdbook-v0.4.30-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
+
+      - name: Build book
+        run: bin/mdbook build
+
+      - name: Deploy book to gh-pages
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+          github_token: ${{ secrets.HUB_TOKEN }}
+          publish_dir: book
+
+      - name: Discard changes on main
+        run: |
+          git checkout main
+          git reset --hard HEAD
+
