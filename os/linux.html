@@ -1,0 +1,787 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux - Hacking with a DREAM in the Mind</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About the author</a></li><li class="chapter-item expanded "><a href="../preface.html"><strong aria-hidden="true">2.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../prepare.html"><strong aria-hidden="true">3.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="../network/basics.html"><strong aria-hidden="true">4.</strong> Basics of 'hacking'</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/youtube.html"><strong aria-hidden="true">4.1.</strong> YouTube playlist about networking</a></li><li class="chapter-item expanded "><a href="../network/osi.html"><strong aria-hidden="true">4.2.</strong> OSI model</a></li><li class="chapter-item expanded "><a href="../network/tcpip.html"><strong aria-hidden="true">4.3.</strong> TCP/IP model</a></li><li class="chapter-item expanded "><a href="../network/encapsulation.html"><strong aria-hidden="true">4.4.</strong> Encapsulation and decapsulation</a></li><li class="chapter-item expanded "><a href="../network/ping.html"><strong aria-hidden="true">4.5.</strong> PING</a></li><li class="chapter-item expanded "><a href="../network/traceroute.html"><strong aria-hidden="true">4.6.</strong> Traceroute</a></li><li class="chapter-item expanded "><a href="../network/whois.html"><strong aria-hidden="true">4.7.</strong> Whois</a></li><li class="chapter-item expanded "><a href="../network/dig.html"><strong aria-hidden="true">4.8.</strong> Dig</a></li><li class="chapter-item expanded "><a href="../network/netcat.html"><strong aria-hidden="true">4.9.</strong> Netcat</a></li><li class="chapter-item expanded "><a href="../network/basic_commands.html"><strong aria-hidden="true">4.10.</strong> Basic network commands</a></li><li class="chapter-item expanded "><a href="../network/basic_smb.html"><strong aria-hidden="true">4.11.</strong> Basic SMB</a></li><li class="chapter-item expanded "><a href="../network/basic_telnet.html"><strong aria-hidden="true">4.12.</strong> Basic Telnet</a></li><li class="chapter-item expanded "><a href="../network/basic_ftp.html"><strong aria-hidden="true">4.13.</strong> Basic FTP</a></li><li class="chapter-item expanded "><a href="../network/basic_http.html"><strong aria-hidden="true">4.14.</strong> Basic HTTP</a></li><li class="chapter-item expanded "><a href="../network/basic_smtp.html"><strong aria-hidden="true">4.15.</strong> Basic SMTP</a></li><li class="chapter-item expanded "><a href="../network/basic_pop3.html"><strong aria-hidden="true">4.16.</strong> Basic POP3</a></li><li class="chapter-item expanded "><a href="../network/basic_imap.html"><strong aria-hidden="true">4.17.</strong> Basic IMAP</a></li><li class="chapter-item expanded "><a href="../network/basic_nfs.html"><strong aria-hidden="true">4.18.</strong> Basic NFS</a></li><li class="chapter-item expanded "><a href="../network/basic_mysql.html"><strong aria-hidden="true">4.19.</strong> Basic MySQL</a></li><li class="chapter-item expanded "><a href="../network/basic_www.html"><strong aria-hidden="true">4.20.</strong> Basic WWW</a></li><li class="chapter-item expanded "><a href="../network/basic_attacks.html"><strong aria-hidden="true">4.21.</strong> Basic attack types</a></li></ol></li><li class="chapter-item expanded "><a href="../theory/description.html"><strong aria-hidden="true">5.</strong> Theory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/description.html"><strong aria-hidden="true">5.1.</strong> Network</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/security.html"><strong aria-hidden="true">5.1.1.</strong> Network security principles</a></li><li class="chapter-item expanded "><a href="../network/ip.html"><strong aria-hidden="true">5.1.2.</strong> IP addresses</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ipv4.html"><strong aria-hidden="true">5.1.2.1.</strong> IPv4</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/subnet_mask.html"><strong aria-hidden="true">5.1.2.1.1.</strong> Subnet mask</a></li><li class="chapter-item expanded "><a href="../network/subnetting.html"><strong aria-hidden="true">5.1.2.1.2.</strong> Subnetting</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ipv6.html"><strong aria-hidden="true">5.1.2.2.</strong> IPv6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/subnet_mask_ipv6.html"><strong aria-hidden="true">5.1.2.2.1.</strong> Subnet mask IPv6</a></li><li class="chapter-item expanded "><a href="../network/subnetting_ipv6.html"><strong aria-hidden="true">5.1.2.2.2.</strong> Subnetting IPv6</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../network/devices.html"><strong aria-hidden="true">5.1.3.</strong> Network devices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/router.html"><strong aria-hidden="true">5.1.3.1.</strong> Router</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/router_security.html"><strong aria-hidden="true">5.1.3.1.1.</strong> Router security</a></li><li class="chapter-item expanded "><a href="../network/router_examples.html"><strong aria-hidden="true">5.1.3.1.2.</strong> Router examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/switch.html"><strong aria-hidden="true">5.1.3.2.</strong> Switch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/switch_security.html"><strong aria-hidden="true">5.1.3.2.1.</strong> Switch security</a></li><li class="chapter-item expanded "><a href="../network/switch_examples.html"><strong aria-hidden="true">5.1.3.2.2.</strong> Switch examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/firewall.html"><strong aria-hidden="true">5.1.3.3.</strong> Firewall</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/firewall_security.html"><strong aria-hidden="true">5.1.3.3.1.</strong> Firewall security</a></li><li class="chapter-item expanded "><a href="../network/firewall_examples.html"><strong aria-hidden="true">5.1.3.3.2.</strong> Firewall examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/proxy.html"><strong aria-hidden="true">5.1.3.4.</strong> Proxy</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/proxy_security.html"><strong aria-hidden="true">5.1.3.4.1.</strong> Proxy security</a></li><li class="chapter-item expanded "><a href="../network/proxy_examples.html"><strong aria-hidden="true">5.1.3.4.2.</strong> Proxy examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ids.html"><strong aria-hidden="true">5.1.3.5.</strong> IDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ids_security.html"><strong aria-hidden="true">5.1.3.5.1.</strong> IDS security</a></li><li class="chapter-item expanded "><a href="../network/ids_examples.html"><strong aria-hidden="true">5.1.3.5.2.</strong> IDS examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ips.html"><strong aria-hidden="true">5.1.3.6.</strong> IPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ips_security.html"><strong aria-hidden="true">5.1.3.6.1.</strong> IPS security</a></li><li class="chapter-item expanded "><a href="../network/ips_examples.html"><strong aria-hidden="true">5.1.3.6.2.</strong> IPS examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/waf.html"><strong aria-hidden="true">5.1.3.7.</strong> WAF</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/waf_security.html"><strong aria-hidden="true">5.1.3.7.1.</strong> WAF security</a></li><li class="chapter-item expanded "><a href="../network/waf_examples.html"><strong aria-hidden="true">5.1.3.7.2.</strong> WAF examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/nat.html"><strong aria-hidden="true">5.1.3.8.</strong> NAT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/nat_security.html"><strong aria-hidden="true">5.1.3.8.1.</strong> NAT security</a></li><li class="chapter-item expanded "><a href="../network/nat_examples.html"><strong aria-hidden="true">5.1.3.8.2.</strong> NAT examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/vpn.html"><strong aria-hidden="true">5.1.3.9.</strong> VPN</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/vpn_security.html"><strong aria-hidden="true">5.1.3.9.1.</strong> VPN security</a></li><li class="chapter-item expanded "><a href="../network/vpn_examples.html"><strong aria-hidden="true">5.1.3.9.2.</strong> VPN examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/load_balancer.html"><strong aria-hidden="true">5.1.3.10.</strong> Load balancer</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/load_balancer_security.html"><strong aria-hidden="true">5.1.3.10.1.</strong> Load balancer security</a></li><li class="chapter-item expanded "><a href="../network/load_balancer_examples.html"><strong aria-hidden="true">5.1.3.10.2.</strong> Load balancer examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/honeypot.html"><strong aria-hidden="true">5.1.3.11.</strong> Honeypot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/honeypot_security.html"><strong aria-hidden="true">5.1.3.11.1.</strong> Honeypot security</a></li><li class="chapter-item expanded "><a href="../network/honeypot_examples.html"><strong aria-hidden="true">5.1.3.11.2.</strong> Honeypot examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/honeynet.html"><strong aria-hidden="true">5.1.3.12.</strong> Honeynet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/honeynet_security.html"><strong aria-hidden="true">5.1.3.12.1.</strong> Honeynet security</a></li><li class="chapter-item expanded "><a href="../network/honeynet_examples.html"><strong aria-hidden="true">5.1.3.12.2.</strong> Honeynet examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/bastion_host.html"><strong aria-hidden="true">5.1.3.13.</strong> Bastion host</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/bastion_host_security.html"><strong aria-hidden="true">5.1.3.13.1.</strong> Bastion host security</a></li><li class="chapter-item expanded "><a href="../network/bastion_host_examples.html"><strong aria-hidden="true">5.1.3.13.2.</strong> Bastion host examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/dmz.html"><strong aria-hidden="true">5.1.3.14.</strong> DMZ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/dmz_security.html"><strong aria-hidden="true">5.1.3.14.1.</strong> DMZ security</a></li><li class="chapter-item expanded "><a href="../network/dmz_examples.html"><strong aria-hidden="true">5.1.3.14.2.</strong> DMZ examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/vlan.html"><strong aria-hidden="true">5.1.3.15.</strong> VLAN</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/vlan_security.html"><strong aria-hidden="true">5.1.3.15.1.</strong> VLAN security</a></li><li class="chapter-item expanded "><a href="../network/vlan_examples.html"><strong aria-hidden="true">5.1.3.15.2.</strong> VLAN examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/sdn.html"><strong aria-hidden="true">5.1.3.16.</strong> SDN</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/sdn_security.html"><strong aria-hidden="true">5.1.3.16.1.</strong> SDN security</a></li><li class="chapter-item expanded "><a href="../network/sdn_examples.html"><strong aria-hidden="true">5.1.3.16.2.</strong> SDN examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/cloud.html"><strong aria-hidden="true">5.1.3.17.</strong> Cloud</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/cloud_security.html"><strong aria-hidden="true">5.1.3.17.1.</strong> Cloud security</a></li><li class="chapter-item expanded "><a href="../network/cloud_examples.html"><strong aria-hidden="true">5.1.3.17.2.</strong> Cloud examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/iot.html"><strong aria-hidden="true">5.1.3.18.</strong> IoT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/iot_security.html"><strong aria-hidden="true">5.1.3.18.1.</strong> IoT security</a></li><li class="chapter-item expanded "><a href="../network/iot_examples.html"><strong aria-hidden="true">5.1.3.18.2.</strong> IoT examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ics.html"><strong aria-hidden="true">5.1.3.19.</strong> ICS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ics_security.html"><strong aria-hidden="true">5.1.3.19.1.</strong> ICS security</a></li><li class="chapter-item expanded "><a href="../network/ics_examples.html"><strong aria-hidden="true">5.1.3.19.2.</strong> ICS examples</a></li></ol></li><li class="chapter-item expanded "><a href="../network/scada.html"><strong aria-hidden="true">5.1.3.20.</strong> SCADA</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/scada_security.html"><strong aria-hidden="true">5.1.3.20.1.</strong> SCADA security</a></li><li class="chapter-item expanded "><a href="../network/scada_examples.html"><strong aria-hidden="true">5.1.3.20.2.</strong> SCADA examples</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../network/protocols.html"><strong aria-hidden="true">5.1.4.</strong> Network protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/tcp/description.html"><strong aria-hidden="true">5.1.4.1.</strong> TCP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/udp/description.html"><strong aria-hidden="true">5.1.4.2.</strong> UDP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/icmp/description.html"><strong aria-hidden="true">5.1.4.3.</strong> ICMP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/http/description.html"><strong aria-hidden="true">5.1.4.4.</strong> HTTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/https/description.html"><strong aria-hidden="true">5.1.4.5.</strong> HTTPS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ftp/description.html"><strong aria-hidden="true">5.1.4.6.</strong> FTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ssh/description.html"><strong aria-hidden="true">5.1.4.7.</strong> SSH Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/telnet/description.html"><strong aria-hidden="true">5.1.4.8.</strong> Telnet Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/smtp/description.html"><strong aria-hidden="true">5.1.4.9.</strong> SMTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/pop3/description.html"><strong aria-hidden="true">5.1.4.10.</strong> POP3 Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/imap/description.html"><strong aria-hidden="true">5.1.4.11.</strong> IMAP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/dhcp/description.html"><strong aria-hidden="true">5.1.4.12.</strong> DHCP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/arp/description.html"><strong aria-hidden="true">5.1.4.13.</strong> ARP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/dns/description.html"><strong aria-hidden="true">5.1.4.14.</strong> DNS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ntp/description.html"><strong aria-hidden="true">5.1.4.15.</strong> NTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/snmp/description.html"><strong aria-hidden="true">5.1.4.16.</strong> SNMP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/smb/description.html"><strong aria-hidden="true">5.1.4.17.</strong> SMB Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ldap/description.html"><strong aria-hidden="true">5.1.4.18.</strong> LDAP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/rdp/description.html"><strong aria-hidden="true">5.1.4.19.</strong> RDP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/sip/description.html"><strong aria-hidden="true">5.1.4.20.</strong> SIP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/voip/description.html"><strong aria-hidden="true">5.1.4.21.</strong> VoIP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/rip/description.html"><strong aria-hidden="true">5.1.4.22.</strong> RIP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ospf/description.html"><strong aria-hidden="true">5.1.4.23.</strong> OSPF Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/bgp/description.html"><strong aria-hidden="true">5.1.4.24.</strong> BGP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/vrrp/description.html"><strong aria-hidden="true">5.1.4.25.</strong> VRRP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/hsrp/description.html"><strong aria-hidden="true">5.1.4.26.</strong> HSRP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/glbp/description.html"><strong aria-hidden="true">5.1.4.27.</strong> GLBP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/lldp/description.html"><strong aria-hidden="true">5.1.4.28.</strong> LLDP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/cdp/description.html"><strong aria-hidden="true">5.1.4.29.</strong> CDP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ip_protocol/description.html"><strong aria-hidden="true">5.1.4.30.</strong> IP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ipv6_protocol/description.html"><strong aria-hidden="true">5.1.4.31.</strong> IPv6 Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/igmp/description.html"><strong aria-hidden="true">5.1.4.32.</strong> IGMP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/nfs/description.html"><strong aria-hidden="true">5.1.4.33.</strong> NFS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/sftp/description.html"><strong aria-hidden="true">5.1.4.34.</strong> SFTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/scp/description.html"><strong aria-hidden="true">5.1.4.35.</strong> SCP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/tftp/description.html"><strong aria-hidden="true">5.1.4.36.</strong> TFTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ssltls/description.html"><strong aria-hidden="true">5.1.4.37.</strong> SSL/TLS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ipsec/description.html"><strong aria-hidden="true">5.1.4.38.</strong> IPSec Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/pptp/description.html"><strong aria-hidden="true">5.1.4.39.</strong> PPTP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/l2tp/description.html"><strong aria-hidden="true">5.1.4.40.</strong> L2TP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/gre/description.html"><strong aria-hidden="true">5.1.4.41.</strong> GRE Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/esp/description.html"><strong aria-hidden="true">5.1.4.42.</strong> ESP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ah/description.html"><strong aria-hidden="true">5.1.4.43.</strong> AH Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/eigrp/description.html"><strong aria-hidden="true">5.1.4.44.</strong> EIGRP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/isis/description.html"><strong aria-hidden="true">5.1.4.45.</strong> IS-IS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/stp/description.html"><strong aria-hidden="true">5.1.4.46.</strong> STP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/vlan_protocol/description.html"><strong aria-hidden="true">5.1.4.47.</strong> VLAN Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/mpls/description.html"><strong aria-hidden="true">5.1.4.48.</strong> MPLS Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/ppp/description.html"><strong aria-hidden="true">5.1.4.49.</strong> PPP Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/hdlc/description.html"><strong aria-hidden="true">5.1.4.50.</strong> HDLC Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/framerelay/description.html"><strong aria-hidden="true">5.1.4.51.</strong> Frame Relay Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/x25/description.html"><strong aria-hidden="true">5.1.4.52.</strong> X.25 Network Protocol</a></li><li class="chapter-item expanded "><a href="../network/atm/description.html"><strong aria-hidden="true">5.1.4.53.</strong> ATM Network Protocol</a></li></ol></li><li class="chapter-item expanded "><a href="../network/server.html"><strong aria-hidden="true">5.1.5.</strong> Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/web_server/description.html"><strong aria-hidden="true">5.1.5.1.</strong> Web Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/web_server/apache/description.html"><strong aria-hidden="true">5.1.5.1.1.</strong> Apache Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/nginx/description.html"><strong aria-hidden="true">5.1.5.1.2.</strong> Nginx Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/iis/description.html"><strong aria-hidden="true">5.1.5.1.3.</strong> IIS Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/lighttpd/description.html"><strong aria-hidden="true">5.1.5.1.4.</strong> Lighttpd Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/tomcat/description.html"><strong aria-hidden="true">5.1.5.1.5.</strong> Tomcat Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/nodejs/description.html"><strong aria-hidden="true">5.1.5.1.6.</strong> Node.js Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/gunicorn/description.html"><strong aria-hidden="true">5.1.5.1.7.</strong> Gunicorn Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/unicorn/description.html"><strong aria-hidden="true">5.1.5.1.8.</strong> Unicorn Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/uwsgi/description.html"><strong aria-hidden="true">5.1.5.1.9.</strong> uWSGI Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/jetty/description.html"><strong aria-hidden="true">5.1.5.1.10.</strong> Jetty Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/glassfish/description.html"><strong aria-hidden="true">5.1.5.1.11.</strong> GlassFish Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/wildfly/description.html"><strong aria-hidden="true">5.1.5.1.12.</strong> WildFly Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/weblogic/description.html"><strong aria-hidden="true">5.1.5.1.13.</strong> WebLogic Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/websphere/description.html"><strong aria-hidden="true">5.1.5.1.14.</strong> WebSphere Web Server</a></li><li class="chapter-item expanded "><a href="../network/web_server/jboss/description.html"><strong aria-hidden="true">5.1.5.1.15.</strong> Jboss Web Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/mail_server/description.html"><strong aria-hidden="true">5.1.5.2.</strong> Mail Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/mail_server/postfix/description.html"><strong aria-hidden="true">5.1.5.2.1.</strong> Postfix Mail Server</a></li><li class="chapter-item expanded "><a href="../network/mail_server/exim/description.html"><strong aria-hidden="true">5.1.5.2.2.</strong> Exim Mail Server</a></li><li class="chapter-item expanded "><a href="../network/mail_server/sendmail/description.html"><strong aria-hidden="true">5.1.5.2.3.</strong> Sendmail Mail Server</a></li><li class="chapter-item expanded "><a href="../network/mail_server/qmail/description.html"><strong aria-hidden="true">5.1.5.2.4.</strong> Qmail Mail Server</a></li><li class="chapter-item expanded "><a href="../network/mail_server/dovecot/description.html"><strong aria-hidden="true">5.1.5.2.5.</strong> Dovecot Mail Server</a></li><li class="chapter-item expanded "><a href="../network/mail_server/courier/description.html"><strong aria-hidden="true">5.1.5.2.6.</strong> Courier Mail Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/proxy_server/description.html"><strong aria-hidden="true">5.1.5.3.</strong> Proxy Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/proxy_server/squid/description.html"><strong aria-hidden="true">5.1.5.3.1.</strong> Squid Proxy Server</a></li><li class="chapter-item expanded "><a href="../network/proxy_server/nginx/description.html"><strong aria-hidden="true">5.1.5.3.2.</strong> Nginx Proxy Server</a></li><li class="chapter-item expanded "><a href="../network/proxy_server/haproxy/description.html"><strong aria-hidden="true">5.1.5.3.3.</strong> HAProxy Proxy Server</a></li><li class="chapter-item expanded "><a href="../network/proxy_server/varnish/description.html"><strong aria-hidden="true">5.1.5.3.4.</strong> Varnish Proxy Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/dns_server/description.html"><strong aria-hidden="true">5.1.5.4.</strong> DNS Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/dns_server/bind/description.html"><strong aria-hidden="true">5.1.5.4.1.</strong> Bind DNS Server</a></li><li class="chapter-item expanded "><a href="../network/dns_server/powerdns/description.html"><strong aria-hidden="true">5.1.5.4.2.</strong> PowerDNS DNS Server</a></li><li class="chapter-item expanded "><a href="../network/dns_server/unbound/description.html"><strong aria-hidden="true">5.1.5.4.3.</strong> Unbound DNS Server</a></li><li class="chapter-item expanded "><a href="../network/dns_server/knot/description.html"><strong aria-hidden="true">5.1.5.4.4.</strong> Knot DNS Server</a></li><li class="chapter-item expanded "><a href="../network/dns_server/nsd/description.html"><strong aria-hidden="true">5.1.5.4.5.</strong> NSD DNS Server</a></li><li class="chapter-item expanded "><a href="../network/dns_server/dnsmasq/description.html"><strong aria-hidden="true">5.1.5.4.6.</strong> Dnsmasq DNS Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/dhcp_server/description.html"><strong aria-hidden="true">5.1.5.5.</strong> DHCP Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/dhcp_server/isc_dhcp/description.html"><strong aria-hidden="true">5.1.5.5.1.</strong> ISC DHCP Server</a></li><li class="chapter-item expanded "><a href="../network/dhcp_server/kea_dhcp/description.html"><strong aria-hidden="true">5.1.5.5.2.</strong> Kea DHCP Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ftp_server/description.html"><strong aria-hidden="true">5.1.5.6.</strong> FTP Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ftp_server/proftpd/description.html"><strong aria-hidden="true">5.1.5.6.1.</strong> ProFTPD FTP Server</a></li><li class="chapter-item expanded "><a href="../network/ftp_server/pureftpd/description.html"><strong aria-hidden="true">5.1.5.6.2.</strong> Pure-FTPd FTP Server</a></li><li class="chapter-item expanded "><a href="../network/ftp_server/vsftpd/description.html"><strong aria-hidden="true">5.1.5.6.3.</strong> vsftpd FTP Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ssh_server/description.html"><strong aria-hidden="true">5.1.5.7.</strong> SSH Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ssh_server/openssh/description.html"><strong aria-hidden="true">5.1.5.7.1.</strong> OpenSSH SSH Server</a></li><li class="chapter-item expanded "><a href="../network/ssh_server/dropbear/description.html"><strong aria-hidden="true">5.1.5.7.2.</strong> Dropbear SSH Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/telnet_server/description.html"><strong aria-hidden="true">5.1.5.8.</strong> Telnet Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/telnet_server/telnet/description.html"><strong aria-hidden="true">5.1.5.8.1.</strong> Telnet Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/database_server/description.html"><strong aria-hidden="true">5.1.5.9.</strong> Database Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/database_server/mysql/description.html"><strong aria-hidden="true">5.1.5.9.1.</strong> MySQL Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/mariadb/description.html"><strong aria-hidden="true">5.1.5.9.2.</strong> MariaDB Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/postgresql/description.html"><strong aria-hidden="true">5.1.5.9.3.</strong> PostgreSQL Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/oracle_database/description.html"><strong aria-hidden="true">5.1.5.9.4.</strong> Oracle Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/mssql/description.html"><strong aria-hidden="true">5.1.5.9.5.</strong> Microsoft SQL Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/mongodb/description.html"><strong aria-hidden="true">5.1.5.9.6.</strong> MongoDB Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/redis/description.html"><strong aria-hidden="true">5.1.5.9.7.</strong> Redis Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/cassandra/description.html"><strong aria-hidden="true">5.1.5.9.8.</strong> Cassandra Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/couchdb/description.html"><strong aria-hidden="true">5.1.5.9.9.</strong> CouchDB Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/couchbase/description.html"><strong aria-hidden="true">5.1.5.9.10.</strong> Couchbase Database Server</a></li><li class="chapter-item expanded "><a href="../network/database_server/elasticsearch/description.html"><strong aria-hidden="true">5.1.5.9.11.</strong> Elasticsearch Database Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/voip_server/description.html"><strong aria-hidden="true">5.1.5.10.</strong> VoIP Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/voip_server/asterisk/description.html"><strong aria-hidden="true">5.1.5.10.1.</strong> Asterisk VoIP Server</a></li><li class="chapter-item expanded "><a href="../network/voip_server/freeswitch/description.html"><strong aria-hidden="true">5.1.5.10.2.</strong> FreeSWITCH VoIP Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/vpn_server/description.html"><strong aria-hidden="true">5.1.5.11.</strong> VPN Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/vpn_server/openvpn/description.html"><strong aria-hidden="true">5.1.5.11.1.</strong> OpenVPN VPN Server</a></li><li class="chapter-item expanded "><a href="../network/vpn_server/softether/description.html"><strong aria-hidden="true">5.1.5.11.2.</strong> SoftEther VPN Server</a></li><li class="chapter-item expanded "><a href="../network/vpn_server/wireguard/description.html"><strong aria-hidden="true">5.1.5.11.3.</strong> WireGuard VPN Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ids_server/description.html"><strong aria-hidden="true">5.1.5.12.</strong> IDS Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ids_server/snort/description.html"><strong aria-hidden="true">5.1.5.12.1.</strong> Snort IDS Server</a></li><li class="chapter-item expanded "><a href="../network/ids_server/suricata/description.html"><strong aria-hidden="true">5.1.5.12.2.</strong> Suricata IDS Server</a></li><li class="chapter-item expanded "><a href="../network/ids_server/bro/description.html"><strong aria-hidden="true">5.1.5.12.3.</strong> Bro IDS Server</a></li><li class="chapter-item expanded "><a href="../network/ids_server/ossec/description.html"><strong aria-hidden="true">5.1.5.12.4.</strong> OSSEC IDS Server</a></li><li class="chapter-item expanded "><a href="../network/ids_server/wazuh/description.html"><strong aria-hidden="true">5.1.5.12.5.</strong> Wazuh IDS Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ips_server/description.html"><strong aria-hidden="true">5.1.5.13.</strong> IPS Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ips_server/snort/description.html"><strong aria-hidden="true">5.1.5.13.1.</strong> Snort IPS Server</a></li><li class="chapter-item expanded "><a href="../network/ips_server/suricata/description.html"><strong aria-hidden="true">5.1.5.13.2.</strong> Suricata IPS Server</a></li><li class="chapter-item expanded "><a href="../network/ips_server/bro/description.html"><strong aria-hidden="true">5.1.5.13.3.</strong> Bro IPS Server</a></li><li class="chapter-item expanded "><a href="../network/ips_server/ossec/description.html"><strong aria-hidden="true">5.1.5.13.4.</strong> OSSEC IPS Server</a></li><li class="chapter-item expanded "><a href="../network/ips_server/wazuh/description.html"><strong aria-hidden="true">5.1.5.13.5.</strong> Wazuh IPS Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/waf_server/description.html"><strong aria-hidden="true">5.1.5.14.</strong> WAF Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/waf_server/modsecurity/description.html"><strong aria-hidden="true">5.1.5.14.1.</strong> ModSecurity WAF Server</a></li><li class="chapter-item expanded "><a href="../network/waf_server/naxsi/description.html"><strong aria-hidden="true">5.1.5.14.2.</strong> NAXSI WAF Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/honeypot_server/description.html"><strong aria-hidden="true">5.1.5.15.</strong> Honeypot Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/honeypot_server/cowrie/description.html"><strong aria-hidden="true">5.1.5.15.1.</strong> Cowrie Honeypot Server</a></li><li class="chapter-item expanded "><a href="../network/honeypot_server/glastopf/description.html"><strong aria-hidden="true">5.1.5.15.2.</strong> Glastopf Honeypot Server</a></li><li class="chapter-item expanded "><a href="../network/honeypot_server/honeyd/description.html"><strong aria-hidden="true">5.1.5.15.3.</strong> Honeyd Honeypot Server</a></li><li class="chapter-item expanded "><a href="../network/honeypot_server/honeypy/description.html"><strong aria-hidden="true">5.1.5.15.4.</strong> HoneyPy Honeypot Server</a></li><li class="chapter-item expanded "><a href="../network/honeypot_server/kippo/description.html"><strong aria-hidden="true">5.1.5.15.5.</strong> Kippo Honeypot Server</a></li><li class="chapter-item expanded "><a href="../network/honeypot_server/thug/description.html"><strong aria-hidden="true">5.1.5.15.6.</strong> Thug Honeypot Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/bastion_host_server/description.html"><strong aria-hidden="true">5.1.5.16.</strong> Bastion Host Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/bastion_host_server/openssh/description.html"><strong aria-hidden="true">5.1.5.16.1.</strong> OpenSSH Bastion Host Server</a></li><li class="chapter-item expanded "><a href="../network/bastion_host_server/dropbear/description.html"><strong aria-hidden="true">5.1.5.16.2.</strong> Dropbear Bastion Host Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/dmz_server/description.html"><strong aria-hidden="true">5.1.5.17.</strong> DMZ Server</a></li><li class="chapter-item expanded "><a href="../network/firewall_server/description.html"><strong aria-hidden="true">5.1.5.18.</strong> Firewall Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/firewall_server/iptables/description.html"><strong aria-hidden="true">5.1.5.18.1.</strong> iptables Firewall Server</a></li><li class="chapter-item expanded "><a href="../network/firewall_server/nftables/description.html"><strong aria-hidden="true">5.1.5.18.2.</strong> nftables Firewall Server</a></li><li class="chapter-item expanded "><a href="../network/firewall_server/pf/description.html"><strong aria-hidden="true">5.1.5.18.3.</strong> pf Firewall Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/load_balancer_server/description.html"><strong aria-hidden="true">5.1.5.19.</strong> Load Balancer Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/load_balancer_server/haproxy/description.html"><strong aria-hidden="true">5.1.5.19.1.</strong> HAProxy Load Balancer Server</a></li><li class="chapter-item expanded "><a href="../network/load_balancer_server/nginx/description.html"><strong aria-hidden="true">5.1.5.19.2.</strong> Nginx Load Balancer Server</a></li><li class="chapter-item expanded "><a href="../network/load_balancer_server/varnish/description.html"><strong aria-hidden="true">5.1.5.19.3.</strong> Varnish Load Balancer Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/nat_server/description.html"><strong aria-hidden="true">5.1.5.20.</strong> NAT Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/nat_server/iptables/description.html"><strong aria-hidden="true">5.1.5.20.1.</strong> iptables NAT Server</a></li><li class="chapter-item expanded "><a href="../network/nat_server/nftables/description.html"><strong aria-hidden="true">5.1.5.20.2.</strong> nftables NAT Server</a></li><li class="chapter-item expanded "><a href="../network/nat_server/pf/description.html"><strong aria-hidden="true">5.1.5.20.3.</strong> pf NAT Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/sdn_server/description.html"><strong aria-hidden="true">5.1.5.21.</strong> SDN Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/sdn_server/openvswitch/description.html"><strong aria-hidden="true">5.1.5.21.1.</strong> Open vSwitch SDN Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/cloud_server/description.html"><strong aria-hidden="true">5.1.5.22.</strong> Cloud Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/cloud_server/aws/description.html"><strong aria-hidden="true">5.1.5.22.1.</strong> Amazon Web Services Cloud Server</a></li><li class="chapter-item expanded "><a href="../network/cloud_server/azure/description.html"><strong aria-hidden="true">5.1.5.22.2.</strong> Microsoft Azure Cloud Server</a></li><li class="chapter-item expanded "><a href="../network/cloud_server/gcp/description.html"><strong aria-hidden="true">5.1.5.22.3.</strong> Google Cloud Platform Cloud Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/iot_server/description.html"><strong aria-hidden="true">5.1.5.23.</strong> IoT Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/iot_server/home_assistant/description.html"><strong aria-hidden="true">5.1.5.23.1.</strong> Home Assistant IoT Server</a></li><li class="chapter-item expanded "><a href="../network/iot_server/openhab/description.html"><strong aria-hidden="true">5.1.5.23.2.</strong> OpenHAB IoT Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ics_server/description.html"><strong aria-hidden="true">5.1.5.24.</strong> ICS Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ics_server/modbus/description.html"><strong aria-hidden="true">5.1.5.24.1.</strong> Modbus ICS Server</a></li><li class="chapter-item expanded "><a href="../network/ics_server/opc/description.html"><strong aria-hidden="true">5.1.5.24.2.</strong> OPC ICS Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/scada_server/description.html"><strong aria-hidden="true">5.1.5.25.</strong> SCADA Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/scada_server/openscada/description.html"><strong aria-hidden="true">5.1.5.25.1.</strong> OpenSCADA SCADA Server</a></li></ol></li><li class="chapter-item expanded "><a href="../network/ics_scada_server/description.html"><strong aria-hidden="true">5.1.5.26.</strong> ICS/SCADA Server</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network/ics_scada_server/openplc/description.html"><strong aria-hidden="true">5.1.5.26.1.</strong> OpenPLC ICS/SCADA Server</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/description.html"><strong aria-hidden="true">5.2.</strong> Web attacks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/forms_urls.html"><strong aria-hidden="true">5.2.1.</strong> Forms and url addresses</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/csrf.html"><strong aria-hidden="true">5.2.1.1.</strong> Cross site request forgery</a></li><li class="chapter-item expanded "><a href="../web_attacks/xss.html"><strong aria-hidden="true">5.2.1.2.</strong> Cross site scripting</a></li><li class="chapter-item expanded "><a href="../web_attacks/form_tampering.html"><strong aria-hidden="true">5.2.1.3.</strong> Form tampering</a></li><li class="chapter-item expanded "><a href="../web_attacks/url_manipulation.html"><strong aria-hidden="true">5.2.1.4.</strong> URL manipulation</a></li><li class="chapter-item expanded "><a href="../web_attacks/form_submission_spoofing.html"><strong aria-hidden="true">5.2.1.5.</strong> Form submission spoofing</a></li><li class="chapter-item expanded "><a href="../web_attacks/http_request_spoofing.html"><strong aria-hidden="true">5.2.1.6.</strong> HTTP request spoofing</a></li><li class="chapter-item expanded "><a href="../web_attacks/semantic_url.html"><strong aria-hidden="true">5.2.1.7.</strong> Semantic URL attacks</a></li><li class="chapter-item expanded "><a href="../web_attacks/upload.html"><strong aria-hidden="true">5.2.1.8.</strong> Upload attacks</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/databases_sql.html"><strong aria-hidden="true">5.2.2.</strong> Databases and SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/database_sql_credential_disclosure.html"><strong aria-hidden="true">5.2.2.1.</strong> Database and sql credential disclosure</a></li><li class="chapter-item expanded "><a href="../web_attacks/database_data_breach.html"><strong aria-hidden="true">5.2.2.2.</strong> Database data breach</a></li><li class="chapter-item expanded "><a href="../web_attacks/sql_injection.html"><strong aria-hidden="true">5.2.2.3.</strong> SQL injection</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/session_cookies.html"><strong aria-hidden="true">5.2.3.</strong> Session and cookies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/session_cookie_theft.html"><strong aria-hidden="true">5.2.3.1.</strong> Session and cookie theft</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_data_disclosure.html"><strong aria-hidden="true">5.2.3.2.</strong> Session data disclosure</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_fixation.html"><strong aria-hidden="true">5.2.3.3.</strong> Session fixation</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_hijacking.html"><strong aria-hidden="true">5.2.3.4.</strong> Session hijacking</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_poisoning.html"><strong aria-hidden="true">5.2.3.5.</strong> Session poisoning</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_replay.html"><strong aria-hidden="true">5.2.3.6.</strong> Session replay</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/file_include.html"><strong aria-hidden="true">5.2.4.</strong> File include</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/code_injection.html"><strong aria-hidden="true">5.2.4.1.</strong> Code injection</a></li><li class="chapter-item expanded "><a href="../web_attacks/file_name_manipulation.html"><strong aria-hidden="true">5.2.4.2.</strong> File name manipulation</a></li><li class="chapter-item expanded "><a href="../web_attacks/source_code_disclosure.html"><strong aria-hidden="true">5.2.4.3.</strong> Source code disclosure</a></li><li class="chapter-item expanded "><a href="../web_attacks/url_backdoors.html"><strong aria-hidden="true">5.2.4.4.</strong> URL addresses opening backdoors</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/files_commands.html"><strong aria-hidden="true">5.2.5.</strong> Files and commands</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/command_injection.html"><strong aria-hidden="true">5.2.5.1.</strong> Command injection</a></li><li class="chapter-item expanded "><a href="../web_attacks/directory_traversal.html"><strong aria-hidden="true">5.2.5.2.</strong> Directory traversal</a></li><li class="chapter-item expanded "><a href="../web_attacks/remote_files.html"><strong aria-hidden="true">5.2.5.3.</strong> Risk associated with remote files</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/auth_authz.html"><strong aria-hidden="true">5.2.6.</strong> Authentication and authorization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/brute_force.html"><strong aria-hidden="true">5.2.6.1.</strong> Brute force</a></li><li class="chapter-item expanded "><a href="../web_attacks/password_sniffing.html"><strong aria-hidden="true">5.2.6.2.</strong> Password sniffing</a></li><li class="chapter-item expanded "><a href="../web_attacks/persistent_login.html"><strong aria-hidden="true">5.2.6.3.</strong> Persistent login</a></li><li class="chapter-item expanded "><a href="../web_attacks/replay_attack.html"><strong aria-hidden="true">5.2.6.4.</strong> Replay attack</a></li></ol></li><li class="chapter-item expanded "><a href="../web_attacks/shared_hosting.html"><strong aria-hidden="true">5.2.7.</strong> Shared hosting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../web_attacks/file_system_browsing.html"><strong aria-hidden="true">5.2.7.1.</strong> File system browsing</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_data_exposure.html"><strong aria-hidden="true">5.2.7.2.</strong> Session data exposure</a></li><li class="chapter-item expanded "><a href="../web_attacks/session_injection.html"><strong aria-hidden="true">5.2.7.3.</strong> Session injection</a></li><li class="chapter-item expanded "><a href="../web_attacks/source_code_exposure.html"><strong aria-hidden="true">5.2.7.4.</strong> Source code exposure</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../programming_languages/description.html"><strong aria-hidden="true">5.3.</strong> Programming languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming_languages/python.html"><strong aria-hidden="true">5.3.1.</strong> Python</a></li><li class="chapter-item expanded "><a href="../programming_languages/bash.html"><strong aria-hidden="true">5.3.2.</strong> Bash</a></li><li class="chapter-item expanded "><a href="../programming_languages/powershell.html"><strong aria-hidden="true">5.3.3.</strong> PowerShell</a></li><li class="chapter-item expanded "><a href="../programming_languages/php.html"><strong aria-hidden="true">5.3.4.</strong> PHP</a></li><li class="chapter-item expanded "><a href="../programming_languages/ruby.html"><strong aria-hidden="true">5.3.5.</strong> Ruby</a></li><li class="chapter-item expanded "><a href="../programming_languages/perl.html"><strong aria-hidden="true">5.3.6.</strong> Perl</a></li><li class="chapter-item expanded "><a href="../programming_languages/c.html"><strong aria-hidden="true">5.3.7.</strong> C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming_languages/learn-c.html"><strong aria-hidden="true">5.3.7.1.</strong> learn-c</a></li></ol></li><li class="chapter-item expanded "><a href="../programming_languages/c++.html"><strong aria-hidden="true">5.3.8.</strong> C++</a></li><li class="chapter-item expanded "><a href="../programming_languages/c#.html"><strong aria-hidden="true">5.3.9.</strong> C#</a></li><li class="chapter-item expanded "><a href="../programming_languages/java.html"><strong aria-hidden="true">5.3.10.</strong> Java</a></li><li class="chapter-item expanded "><a href="../programming_languages/javascript.html"><strong aria-hidden="true">5.3.11.</strong> JavaScript</a></li><li class="chapter-item expanded "><a href="../programming_languages/go.html"><strong aria-hidden="true">5.3.12.</strong> Go</a></li><li class="chapter-item expanded "><a href="../programming_languages/rust.html"><strong aria-hidden="true">5.3.13.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming_languages/learn-rust.html"><strong aria-hidden="true">5.3.13.1.</strong> learn-rust</a></li></ol></li><li class="chapter-item expanded "><a href="../programming_languages/kotlin.html"><strong aria-hidden="true">5.3.14.</strong> Kotlin</a></li><li class="chapter-item expanded "><a href="../programming_languages/swift.html"><strong aria-hidden="true">5.3.15.</strong> Swift</a></li></ol></li><li class="chapter-item expanded "><a href="../small_business/description.html"><strong aria-hidden="true">5.4.</strong> Small business security</a></li></ol></li><li class="chapter-item expanded "><a href="../practice/description.html"><strong aria-hidden="true">6.</strong> Practice</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../bug_bounty/description.html"><strong aria-hidden="true">6.1.</strong> Bug bounty in programming languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../bug_bounty/go.html"><strong aria-hidden="true">6.1.1.</strong> Go language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/rust.html"><strong aria-hidden="true">6.1.2.</strong> Rust language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/ruby.html"><strong aria-hidden="true">6.1.3.</strong> Ruby language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/nodejs.html"><strong aria-hidden="true">6.1.4.</strong> Node.js language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/python.html"><strong aria-hidden="true">6.1.5.</strong> Python language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/swift.html"><strong aria-hidden="true">6.1.6.</strong> Swift language</a></li><li class="chapter-item expanded "><a href="../bug_bounty/dotnet.html"><strong aria-hidden="true">6.1.7.</strong> .NET platform</a></li><li class="chapter-item expanded "><a href="../bug_bounty/stack_buffer_overflow.html"><strong aria-hidden="true">6.1.8.</strong> Finding stack buffer overflows</a></li></ol></li><li class="chapter-item expanded "><a href="../bug_hunting/websites.html"><strong aria-hidden="true">6.2.</strong> Bug Hunting</a></li><li class="chapter-item expanded "><a href="../penetration_testing/description.html"><strong aria-hidden="true">6.3.</strong> Penetration Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../penetration_testing/flavors.html"><strong aria-hidden="true">6.3.1.</strong> Penetration Testing flavors</a></li><li class="chapter-item expanded "><a href="../penetration_testing/basics.html"><strong aria-hidden="true">6.3.2.</strong> Penetration Testing basics</a></li><li class="chapter-item expanded "><a href="../penetration_testing/excercise.html"><strong aria-hidden="true">6.3.3.</strong> Penetration Testing excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../mitre/description.html"><strong aria-hidden="true">6.4.</strong> MITRE</a></li><li class="chapter-item expanded "><a href="../cloud/description.html"><strong aria-hidden="true">6.5.</strong> Cloud</a></li><li class="chapter-item expanded "><a href="../docker/description.html"><strong aria-hidden="true">6.6.</strong> Docker or Podman</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docker/excercise.html"><strong aria-hidden="true">6.6.1.</strong> Excercise images</a></li></ol></li><li class="chapter-item expanded "><a href="../vm/description.html"><strong aria-hidden="true">6.7.</strong> Virtual Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../vm/virtualbox.html"><strong aria-hidden="true">6.7.1.</strong> VirtualBox</a></li><li class="chapter-item expanded "><a href="../vm/vmware.html"><strong aria-hidden="true">6.7.2.</strong> VMware</a></li><li class="chapter-item expanded "><a href="../vm/hyper-v.html"><strong aria-hidden="true">6.7.3.</strong> Hyper-V</a></li><li class="chapter-item expanded "><a href="../vm/qemu.html"><strong aria-hidden="true">6.7.4.</strong> QEMU</a></li><li class="chapter-item expanded "><a href="../vm/kvm.html"><strong aria-hidden="true">6.7.5.</strong> KVM</a></li><li class="chapter-item expanded "><a href="../vm/xen.html"><strong aria-hidden="true">6.7.6.</strong> Xen</a></li><li class="chapter-item expanded "><a href="../vm/parallels.html"><strong aria-hidden="true">6.7.7.</strong> Parallels</a></li><li class="chapter-item expanded "><a href="../vm/virtualpc.html"><strong aria-hidden="true">6.7.8.</strong> Virtual PC</a></li><li class="chapter-item expanded "><a href="../vm/utm.html"><strong aria-hidden="true">6.7.9.</strong> UTM</a></li><li class="chapter-item expanded "><a href="../vm/excercise.html"><strong aria-hidden="true">6.7.10.</strong> VM excercises</a></li><li class="chapter-item expanded "><a href="../vm/excercise.html"><strong aria-hidden="true">6.7.11.</strong> Excercise images</a></li></ol></li><li class="chapter-item expanded "><a href="../payloads_lists.html"><strong aria-hidden="true">6.8.</strong> Payloads & SecLists</a></li><li class="chapter-item expanded "><a href="../encode_decode/description.html"><strong aria-hidden="true">6.9.</strong> Encoding and decoding</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encode_decode/hex.html"><strong aria-hidden="true">6.9.1.</strong> Hex value of character</a></li><li class="chapter-item expanded "><a href="../encode_decode/url.html"><strong aria-hidden="true">6.9.2.</strong> URL encoding</a></li><li class="chapter-item expanded "><a href="../encode_decode/decimal.html"><strong aria-hidden="true">6.9.3.</strong> Decimal encoding</a></li></ol></li><li class="chapter-item expanded "><a href="../vpn_proxy.html"><strong aria-hidden="true">6.10.</strong> Why you should use VPN or Proxy</a></li><li class="chapter-item expanded "><a href="../earn_open_source.html"><strong aria-hidden="true">6.11.</strong> How to earn on open source</a></li><li class="chapter-item expanded "><a href="../os/description.html"><strong aria-hidden="true">6.12.</strong> Operatimg Systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../os/macos.html"><strong aria-hidden="true">6.12.1.</strong> macOS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tools/nutek-apple.html"><strong aria-hidden="true">6.12.1.1.</strong> nutek-apple</a></li></ol></li><li class="chapter-item expanded "><a href="../os/windows.html"><strong aria-hidden="true">6.12.2.</strong> Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ad/description.html"><strong aria-hidden="true">6.12.2.1.</strong> Active Directory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../impacket/description.html"><strong aria-hidden="true">6.12.2.1.1.</strong> Impacket</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../impacket/basics.html"><strong aria-hidden="true">6.12.2.1.1.1.</strong> Impacket basics</a></li><li class="chapter-item expanded "><a href="../impacket/excercise.html"><strong aria-hidden="true">6.12.2.1.1.2.</strong> Impacket excercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../windows/token_abuse.html"><strong aria-hidden="true">6.12.2.2.</strong> Token Abuse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../windows/token_abuse_paper.html"><strong aria-hidden="true">6.12.2.2.1.</strong> Paper by dronesec</a></li></ol></li><li class="chapter-item expanded "><a href="../windows/privilege_escalation.html"><strong aria-hidden="true">6.12.2.3.</strong> Windows privilege escalation</a></li></ol></li><li class="chapter-item expanded "><a href="../os/linux.html" class="active"><strong aria-hidden="true">6.12.3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../os/kali.html"><strong aria-hidden="true">6.12.3.1.</strong> Kali Linux</a></li><li class="chapter-item expanded "><a href="../os/parrot.html"><strong aria-hidden="true">6.12.3.2.</strong> ParrotOS</a></li><li class="chapter-item expanded "><a href="../os/linux_basics.html"><strong aria-hidden="true">6.12.3.3.</strong> Linux basics</a></li><li class="chapter-item expanded "><a href="../os/linux_privilege_escalation.html"><strong aria-hidden="true">6.12.3.4.</strong> Linux privilege escalation</a></li></ol></li><li class="chapter-item expanded "><a href="../os/bsd.html"><strong aria-hidden="true">6.12.4.</strong> BSD</a></li><li class="chapter-item expanded "><a href="../os/solaris.html"><strong aria-hidden="true">6.12.5.</strong> Solaris</a></li><li class="chapter-item expanded "><a href="../os/aix.html"><strong aria-hidden="true">6.12.6.</strong> AIX</a></li><li class="chapter-item expanded "><a href="../os/hp-ux.html"><strong aria-hidden="true">6.12.7.</strong> HP-UX</a></li><li class="chapter-item expanded "><a href="../os/excercise.html"><strong aria-hidden="true">6.12.8.</strong> Excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../crypto/description.html"><strong aria-hidden="true">6.13.</strong> Crypto</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../crypto/symmetric.html"><strong aria-hidden="true">6.13.1.</strong> Symmetric cryptography</a></li><li class="chapter-item expanded "><a href="../crypto/asymmetric.html"><strong aria-hidden="true">6.13.2.</strong> Asymmetric cryptography</a></li><li class="chapter-item expanded "><a href="../crypto/hash.html"><strong aria-hidden="true">6.13.3.</strong> Hash functions</a></li><li class="chapter-item expanded "><a href="../crypto/signature.html"><strong aria-hidden="true">6.13.4.</strong> Digital signatures</a></li><li class="chapter-item expanded "><a href="../crypto/pki.html"><strong aria-hidden="true">6.13.5.</strong> Public key infrastructure</a></li><li class="chapter-item expanded "><a href="../crypto/ca.html"><strong aria-hidden="true">6.13.6.</strong> Certificate authority</a></li><li class="chapter-item expanded "><a href="../crypto/crl.html"><strong aria-hidden="true">6.13.7.</strong> Certificate revocation list</a></li><li class="chapter-item expanded "><a href="../crypto/csr.html"><strong aria-hidden="true">6.13.8.</strong> Certificate signing request</a></li><li class="chapter-item expanded "><a href="../crypto/excercise.html"><strong aria-hidden="true">6.13.9.</strong> Excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../terminals/description.html"><strong aria-hidden="true">6.14.</strong> Terminals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../terminals/tmux.html"><strong aria-hidden="true">6.14.1.</strong> tmux</a></li><li class="chapter-item expanded "><a href="../terminals/alacritty.html"><strong aria-hidden="true">6.14.2.</strong> Alacritty</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../terminals/alacritty_config.html"><strong aria-hidden="true">6.14.2.1.</strong> Alacritty configuration</a></li><li class="chapter-item expanded "><a href="../terminals/alacritty_checklist.html"><strong aria-hidden="true">6.14.2.2.</strong> Alacritty checklist</a></li></ol></li><li class="chapter-item expanded "><a href="../terminals/warp.html"><strong aria-hidden="true">6.14.3.</strong> Warp</a></li></ol></li><li class="chapter-item expanded "><a href="../shell/description.html"><strong aria-hidden="true">6.15.</strong> Shell</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shell/bash.html"><strong aria-hidden="true">6.15.1.</strong> Bash</a></li><li class="chapter-item expanded "><a href="../shell/zsh.html"><strong aria-hidden="true">6.15.2.</strong> Zsh</a></li><li class="chapter-item expanded "><a href="../shell/fish.html"><strong aria-hidden="true">6.15.3.</strong> Fish</a></li><li class="chapter-item expanded "><a href="../shell/powershell.html"><strong aria-hidden="true">6.15.4.</strong> PowerShell</a></li><li class="chapter-item expanded "><a href="../shell/excercise.html"><strong aria-hidden="true">6.15.5.</strong> Excercises</a></li><li class="chapter-item expanded "><a href="../shell/scripts.html"><strong aria-hidden="true">6.15.6.</strong> Shell scripts</a></li><li class="chapter-item expanded "><a href="../shell/commands.html"><strong aria-hidden="true">6.15.7.</strong> Shell commands</a></li><li class="chapter-item expanded "><a href="../shell/reverse.html"><strong aria-hidden="true">6.15.8.</strong> Reverse shell</a></li><li class="chapter-item expanded "><a href="../shell/excercise.html"><strong aria-hidden="true">6.15.9.</strong> Shell excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../nmap/description.html"><strong aria-hidden="true">6.16.</strong> Nmap</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../nmap/basics.html"><strong aria-hidden="true">6.16.1.</strong> Nmap basics</a></li><li class="chapter-item expanded "><a href="../nmap/scanning.html"><strong aria-hidden="true">6.16.2.</strong> Nmap scanning</a></li><li class="chapter-item expanded "><a href="../nmap/scripts.html"><strong aria-hidden="true">6.16.3.</strong> Nmap scripts</a></li><li class="chapter-item expanded "><a href="../nmap/excercise.html"><strong aria-hidden="true">6.16.4.</strong> Nmap excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../wireshark/description.html"><strong aria-hidden="true">6.17.</strong> Wireshark</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../wireshark/basics.html"><strong aria-hidden="true">6.17.1.</strong> Wireshark basics</a></li><li class="chapter-item expanded "><a href="../wireshark/filters.html"><strong aria-hidden="true">6.17.2.</strong> Wireshark filters</a></li><li class="chapter-item expanded "><a href="../wireshark/excercise.html"><strong aria-hidden="true">6.17.3.</strong> Wireshark excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../networkminer/description.html"><strong aria-hidden="true">6.18.</strong> NetworkMiner</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../networkminer/basics.html"><strong aria-hidden="true">6.18.1.</strong> NetworkMiner basics</a></li><li class="chapter-item expanded "><a href="../networkminer/excercise.html"><strong aria-hidden="true">6.18.2.</strong> NetworkMiner excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../burp/description.html"><strong aria-hidden="true">6.19.</strong> Burp Suite</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../burp/basics.html"><strong aria-hidden="true">6.19.1.</strong> Burp Suite basics</a></li><li class="chapter-item expanded "><a href="../burp/excercise.html"><strong aria-hidden="true">6.19.2.</strong> Burp Suite excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ffuf/description.html"><strong aria-hidden="true">6.20.</strong> FFUF</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ffuf/basics.html"><strong aria-hidden="true">6.20.1.</strong> FFUF basics</a></li><li class="chapter-item expanded "><a href="../ffuf/excercise.html"><strong aria-hidden="true">6.20.2.</strong> FFUF excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../passive_recon/description.html"><strong aria-hidden="true">6.21.</strong> Passive reconnaissance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../passive_recon/basics.html"><strong aria-hidden="true">6.21.1.</strong> Passive reconnaissance basics</a></li><li class="chapter-item expanded "><a href="../passive_recon/excercise.html"><strong aria-hidden="true">6.21.2.</strong> Passive reconnaissance excercises</a></li><li class="chapter-item expanded "><a href="../network/dns/dns_enum_python.html"><strong aria-hidden="true">6.21.3.</strong> DNS Enumeration using Python</a></li><li class="chapter-item expanded "><a href="../network/dns/dns_enum_dig.html"><strong aria-hidden="true">6.21.4.</strong> DNS Enumeration using dig</a></li><li class="chapter-item expanded "><a href="../network/dns/dns_enum_nslookup.html"><strong aria-hidden="true">6.21.5.</strong> DNS Enumeration using nslookup</a></li><li class="chapter-item expanded "><a href="../network/dns/dns_enum_other.html"><strong aria-hidden="true">6.21.6.</strong> DNS Enumeration using other tools</a></li></ol></li><li class="chapter-item expanded "><a href="../active_recon/description.html"><strong aria-hidden="true">6.22.</strong> Active reconnaissance</a></li><li class="chapter-item expanded "><a href="../osint/description.html"><strong aria-hidden="true">6.23.</strong> Open-source Intelligence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../osint/what.html"><strong aria-hidden="true">6.23.1.</strong> What is OSINT</a></li><li class="chapter-item expanded "><a href="../osint/setup.html"><strong aria-hidden="true">6.23.2.</strong> How to build OSINT setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../osint/setup_article1.html"><strong aria-hidden="true">6.23.2.1.</strong> José Kadlec article from LinkedIn</a></li></ol></li><li class="chapter-item expanded "><a href="../osint/google_dorks.html"><strong aria-hidden="true">6.23.3.</strong> Google Dorks</a></li><li class="chapter-item expanded "><a href="../osint/shodan.html"><strong aria-hidden="true">6.23.4.</strong> Shodan</a></li><li class="chapter-item expanded "><a href="../osint/censys.html"><strong aria-hidden="true">6.23.5.</strong> Censys</a></li><li class="chapter-item expanded "><a href="../osint/recon-ng.html"><strong aria-hidden="true">6.23.6.</strong> Recon-ng</a></li><li class="chapter-item expanded "><a href="../osint/theharvester.html"><strong aria-hidden="true">6.23.7.</strong> theHarvester</a></li><li class="chapter-item expanded "><a href="../osint/maltego.html"><strong aria-hidden="true">6.23.8.</strong> Maltego</a></li><li class="chapter-item expanded "><a href="../osint/spiderfoot.html"><strong aria-hidden="true">6.23.9.</strong> SpiderFoot</a></li><li class="chapter-item expanded "><a href="../osint/metagoofil.html"><strong aria-hidden="true">6.23.10.</strong> Metagoofil</a></li><li class="chapter-item expanded "><a href="../osint/osrframework.html"><strong aria-hidden="true">6.23.11.</strong> OSRFramework</a></li><li class="chapter-item expanded "><a href="../osint/excercise.html"><strong aria-hidden="true">6.23.12.</strong> Excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../owasp/description.html"><strong aria-hidden="true">6.24.</strong> OWASP Top 10</a></li><li class="chapter-item expanded "><a href="../hydra/description.html"><strong aria-hidden="true">6.25.</strong> Hydra</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hydra/basics.html"><strong aria-hidden="true">6.25.1.</strong> Hydra basics</a></li><li class="chapter-item expanded "><a href="../hydra/excercise.html"><strong aria-hidden="true">6.25.2.</strong> Hydra excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../metasploit/description.html"><strong aria-hidden="true">6.26.</strong> Metasploit</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../metasploit/basics.html"><strong aria-hidden="true">6.26.1.</strong> Metasploit basics</a></li><li class="chapter-item expanded "><a href="../metasploit/excercise.html"><strong aria-hidden="true">6.26.2.</strong> Metasploit excercises</a></li></ol></li><li class="chapter-item expanded "><a href="../sqli/description.html"><strong aria-hidden="true">6.27.</strong> What is SQL injection</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/examples.html"><strong aria-hidden="true">6.27.1.</strong> Simple examples</a></li><li class="chapter-item expanded "><a href="../sqli/know.html"><strong aria-hidden="true">6.27.2.</strong> Know what and where</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/know_type_version.html"><strong aria-hidden="true">6.27.2.1.</strong> Database type and version</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/know_oracle_type.html"><strong aria-hidden="true">6.27.2.1.1.</strong> Oracle</a></li><li class="chapter-item expanded "><a href="../sqli/know_postgres_type.html"><strong aria-hidden="true">6.27.2.1.2.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="../sqli/know_mm_type.html"><strong aria-hidden="true">6.27.2.1.3.</strong> Microsoft SQL and MySQL</a></li></ol></li><li class="chapter-item expanded "><a href="../sqli/know_content.html"><strong aria-hidden="true">6.27.2.2.</strong> Listing content</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/know_schema.html"><strong aria-hidden="true">6.27.2.2.1.</strong> Show schema</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../sqli/union.html"><strong aria-hidden="true">6.27.3.</strong> UNION attacks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/union_columns.html"><strong aria-hidden="true">6.27.3.1.</strong> How many columns</a></li><li class="chapter-item expanded "><a href="../sqli/union_column_type.html"><strong aria-hidden="true">6.27.3.2.</strong> Column type check</a></li><li class="chapter-item expanded "><a href="../sqli/union_other_tables.html"><strong aria-hidden="true">6.27.3.3.</strong> Get other tables</a></li><li class="chapter-item expanded "><a href="../sqli/union_string_concat.html"><strong aria-hidden="true">6.27.3.4.</strong> String concatenetaion</a></li></ol></li><li class="chapter-item expanded "><a href="../sqli/blind.html"><strong aria-hidden="true">6.27.4.</strong> Blind SQLi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sqli/blind_conditional.html"><strong aria-hidden="true">6.27.4.1.</strong> Conditional response</a></li><li class="chapter-item expanded "><a href="../sqli/blind_error.html"><strong aria-hidden="true">6.27.4.2.</strong> Error response</a></li><li class="chapter-item expanded "><a href="../sqli/bilnd_verbose_error.html"><strong aria-hidden="true">6.27.4.3.</strong> Verbose error response</a></li><li class="chapter-item expanded "><a href="../sqli/blind_delay.html"><strong aria-hidden="true">6.27.4.4.</strong> Time delays</a></li></ol></li><li class="chapter-item expanded "><a href="../sqli/second-order.html"><strong aria-hidden="true">6.27.5.</strong> Second-order SQLi</a></li><li class="chapter-item expanded "><a href="../sqli/cheat.html"><strong aria-hidden="true">6.27.6.</strong> SQLi Cheat Sheet</a></li><li class="chapter-item expanded "><a href="../sqli/sqlmap.html"><strong aria-hidden="true">6.27.7.</strong> sqlmap</a></li></ol></li><li class="chapter-item expanded "><a href="../auth/description.html"><strong aria-hidden="true">6.28.</strong> Authentication</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../auth/password.html"><strong aria-hidden="true">6.28.1.</strong> Password-based login</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../auth/password_different.html"><strong aria-hidden="true">6.28.1.1.</strong> Username enumeration with different responses</a></li><li class="chapter-item expanded "><a href="../auth/password_subtle.html"><strong aria-hidden="true">6.28.1.2.</strong> Username enumeration with subtly different responses</a></li><li class="chapter-item expanded "><a href="../auth/password_timing.html"><strong aria-hidden="true">6.28.1.3.</strong> Username enumeration with different timing</a></li><li class="chapter-item expanded "><a href="../auth/password_failed.html"><strong aria-hidden="true">6.28.1.4.</strong> Failed attempts lock</a></li><li class="chapter-item expanded "><a href="../auth/password_lock.html"><strong aria-hidden="true">6.28.1.5.</strong> Username enumeration via account lock</a></li><li class="chapter-item expanded "><a href="../auth/ffuf.html"><strong aria-hidden="true">6.28.1.6.</strong> ffuf</a></li></ol></li><li class="chapter-item expanded "><a href="../auth/mfa.html"><strong aria-hidden="true">6.28.2.</strong> Multi-factor authentication(MFA)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../auth/mfa_simple.html"><strong aria-hidden="true">6.28.2.1.</strong> 2FA simple bypass</a></li><li class="chapter-item expanded "><a href="../auth/mfa_broken.html"><strong aria-hidden="true">6.28.2.2.</strong> 2FA broken logic</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../links.html"><strong aria-hidden="true">7.</strong> Links</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Hacking with a DREAM in the Mind</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<p>Where is Linux Used?
+It's fair to say that Linux is a lot more intimidating to approach than Operating System's (OSs) such as Windows. Both variants have their own advantages and disadvantages. For example, Linux is considerably much more lightweight and you'd be surprised to know that there's a good chance you've used Linux in some form or another every day! Linux powers things such as:</p>
+<p>Websites that you visit
+Car entertainment/control panels
+Point of Sale (PoS) systems such as checkout tills and registers in shops
+Critical infrastructures such as traffic light controllers or industrial sensors</p>
+<p>Flavours of Linux
+The name &quot;Linux&quot; is actually an umbrella term for multiple OS's that are based on UNIX (another operating system). Thanks to UNIX being open-source, variants of Linux comes in all shapes and sizes - suited best for what the system is being used for.</p>
+<p>For example, Ubuntu &amp; Debian are some of the more commonplace distributions of Linux because it is so extensible. I.e. you can run Ubuntu as a server (such as websites &amp; web applications) or as a fully-fledged desktop. For this series, we're going to be using Ubuntu.</p>
+<p>Ubuntu Server can run on systems with only 512MB of RAM</p>
+<p>Similar to how you have different versions Windows (7, 8 and 10), there are many different versions/distributions of Linux.</p>
+<p>This room has a Ubuntu Linux machine that you can interact with all within your browser whilst following along with this room's material. </p>
+<p>However, to get started, simply press the green &quot;Start Machine&quot; button on the top-right of this task indicated by the arrow on the right: </p>
+<p>Once deployed, a card will appear at the top of the room:</p>
+<p>This contains all of the information for the machine deployed in the room including the IP address and expiry timer - along with buttons to manage the machine. Remember to &quot;Terminate&quot; a machine once you are done with the room. More information on this can be found in the tutorial room.</p>
+<p>For now, press &quot;Start Machine&quot; where you will be able to interact with your own Linux machine within your browser whilst following along with this room: </p>
+<p>Answer the questions below
+I've deployed my first Linux machine!</p>
+<p>As we previously discussed, a large selling point of using OSs such as Ubuntu is how lightweight they can be. This, of course, doesn't come without its disadvantages, where for example, often there is no GUI (Graphical User Interface) or what is also known as a desktop environment that we can use to interact with the machine (unless it has been installed). A large part of interacting with these systems is using the &quot;Terminal&quot;.</p>
+<p>The &quot;Terminal&quot; is purely text-based and is intimidating at first. However, if we break down some of the commands, after some time, you quickly become familiar with using the terminal!</p>
+<p>This is what a terminal looks like
+tryhackme@linux1:~$ enter commands here
+We need to be able to do basic functions like navigate to files, output their contents and make files! The commands to do so are self-explanatory (once you know what they are of course...)</p>
+<p>Let's get started with two of the first commands which I have broken down in the table below:</p>
+<p>Command	Description
+echo	Output any text that we provide
+whoami	Find out what user we're currently logged in as!</p>
+<p>See the snippets below for an example of each command being used...</p>
+<p>Using echo
+tryhackme@linux1:<del>$ echo &quot;Hello Friend!&quot;
+Using whoami to find out the username of who we're logged in as
+tryhackme@linux1:</del>$ whoami
+Try this on your Linux machine now!</p>
+<p>So far we've only covered the &quot;echo&quot; and &quot;whoami&quot; commands. Not all that useful when you consider things that we need to do - including navigating the filesystem, read and write to it as well.</p>
+<p>In this task, we're going to be learning the commands so that we can do just that. Just like the previous task, I'll display the commands in the table in the next heading &amp; show examples of these commands being used.</p>
+<p>Interacting With the Filesystem
+As I previously stated, being able to navigate the machine that you are logged into without relying on a desktop environment is pretty important. After all, what's the point of logging in if we can't go anywhere?</p>
+<p>Command	Full Name
+ls	listing
+cd	change directory
+cat	concatenate
+pwd	print working directory</p>
+<p>Listing Files in Our Current Directory (ls)
+Before we can do anything such as finding out the contents of any files or folders, we need to know what exists in the first place. This can be done using the &quot;ls&quot; command (short for listing)</p>
+<p>Using &quot;ls&quot; to to list the contents of the current directory
+tryhackme@linux1:~$ ls
+'Important Files' 'My Documents' Notes Pictures</p>
+<p>In the screenshot above, we can see there are the following directories/folders:</p>
+<p>Important Files
+My Documents
+Notes
+Pictures
+Great! You can probably take a guess as to what to expect a folder to contain given by its name.</p>
+<p>Pro tip: You can list the contents of a directory without having to navigate to it by using ls and the name of the directory. I.e. ls Pictures</p>
+<p>Changing Our Current Directory (cd)
+Now that we know what folders exist, we need to use the &quot;cd&quot; command (short for change directory) to change to that directory. Say if I wanted to open the &quot;Pictures&quot; directory - I'd do &quot;cd Pictures&quot;. Where again, we want to find out the contents of this &quot;Pictures&quot; directory and to do so, we'd use &quot;ls&quot; again:</p>
+<p>Listing our new directory after we have used &quot;cd&quot;
+tryhackme@linux1:~/Pictures$ ls
+dog_picture1.jpg dog_picture2.jpg dog_picture3.jpg dog_picture4.jpg
+In this case, it looks like there are 4 pictures of dogs!</p>
+<p>Outputting the Contents of a File (cat)
+Whilst knowing about the existence of files is great — it's not all that useful unless we're able to view the contents of them.</p>
+<p>We will come on to discuss some of the tools available to us that allows us to transfer files from one machine to another in a later room. But for now, we're going to talk about simply seeing the contents of text files using a command called &quot;cat&quot;.</p>
+<p>&quot;Cat&quot; is short for concatenating &amp; is a fantastic way for us to output the contents of files (not just text files!).</p>
+<p>In the screenshot below, you can see how I have combined the use of &quot;ls&quot; to list the files within a directory called &quot;Documents&quot;:</p>
+<p>Using &quot;ls&quot; to to list the contents of the current directory
+tryhackme@linux1:<del>/Documents$ ls
+todo.txt
+tryhackme@linux1:</del>/Documents$ cat todo.txt
+Here's something important for me to do later!
+We've applied some knowledge from earlier in this task to do the following:</p>
+<p>Used &quot;ls&quot; to let us know what files are available in the &quot;Documents&quot; folder of this machine. In this case, it is called &quot;todo.txt&quot;.
+We have then used cat todo.txt to concatenate/output the contents of this &quot;todo.txt&quot; file, where the contents are &quot;Here's something important for me to do later!&quot;
+Pro tip: You can use cat to output the contents of a file within directories without having to navigate to it by using cat and the name of the directory. I.e. cat /home/ubuntu/Documents/todo.txt</p>
+<p>Sometimes things like usernames, passwords (yes - really...), flags or configuration settings are stored within files where &quot;cat&quot; can be used to retrieve these.</p>
+<p>Finding out the full Path to our Current Working Directory (pwd)
+You'll notice as you progress through navigating your Linux machine, the name of the directory that you are currently working in will be listed in your terminal.</p>
+<p>It's easy to lose track of where we are on the filesystem exactly, which is why I want to introduce &quot;pwd&quot;. This stands for print working directory.</p>
+<p>Using the example machine from before, we are currently in the &quot;Documents&quot; folder — but where is this exactly on the Linux machine's filesystem? We can find this out using this &quot;pwd&quot; command like within the screenshot below:</p>
+<p>Using &quot;pwd&quot; to list the full path of the current directory
+tryhackme@linux1:<del>/Documents$ pwd
+/home/ubuntu/Documents
+tryhackme@linux1:</del>/Documents$
+Let's break this down:</p>
+<p>We already know we're in &quot;Documents&quot; thanks to our terminal, but at this point in time, we have no idea where &quot;Documents&quot; is stored so that we can get back to it easily in the future.
+I have used the &quot;pwd&quot; (print working directory) command to find the full file path of this &quot;Documents&quot; folder.
+We're helpfully told by Linux that this &quot;Documents&quot; directory is stored at &quot;/home/ubuntu/Documents&quot; on the machine — great to know!
+Now in the future, if we find ourselves in a different location, we can just use cd /home/ubuntu/Documents to change our working directory to this &quot;Documents&quot; directory.</p>
+<p>Although it doesn't seem like it so far, one of the redeeming features of Linux is truly how efficient you can be with it. With that said, you can only be as efficient as you are familiar with it of course. As you interact with OSs such as Ubuntu over time, essential commands like those we've already covered will start to become muscle-memory.</p>
+<p>One fantastic way to show just how efficient you can be with systems like this is using a set of commands to quickly search for files across the entire system that our user has access to. No need to consistently use cd and ls to find out what is where. Instead, we can use commands such as find to automate things like this for us!</p>
+<p>This is where Linux starts to become a bit more intimidating to approach -- but we'll break this down and ease you into it.</p>
+<p>Using Find
+The find command is fantastic in the sense that it can be used both very simply or rather complex depending upon what it is you want to do exactly. However, let's stick to the fundamentals first.</p>
+<p>Take the snippet below; we can see a list of directories available to us:</p>
+<p>Using &quot;ls&quot; to list the contents of the current directory
+tryhackme@linux1:<del>$ ls
+Desktop Documents Pictures folder1
+tryhackme@linux1:</del>$</p>
+<p>Desktop
+Documents
+Pictures
+folder1
+Now, of course, directories can contain even more directories within themselves. It becomes a headache when we're having to look through every single one just to try and look for specific files. We can use find to do just this for us!</p>
+<p>Let's start simple and assume that we already know the name of the file we're looking for — but can't remember where it is exactly! In this case, we're looking for &quot;passwords.txt&quot;</p>
+<p>If we remember the filename, we can simply use find -name passwords.txt where the command will look through every folder in our current directory for that specific file like so:</p>
+<p>Using &quot;find&quot; to find a file with the name of &quot;passwords.txt&quot;
+tryhackme@linux1:<del>$ find -name passwords.txt
+./folder1/passwords.txt
+tryhackme@linux1:</del>$</p>
+<p>&quot;Find&quot; has managed to find the file — it turns out it is located in folder1/passwords.txt — sweet. But let's say that we don't know the name of the file, or want to search for every file that has an extension such as &quot;.txt&quot;. Find let's us do that too!</p>
+<p>We can simply use what's known as a wildcard (*) to search for anything that has .txt at the end. In our case, we want to find every .txt file that's in our current directory. We will construct a command such as find -name *.txt . Where &quot;Find&quot; has been able to find every .txt file and has then given us the location of each one:</p>
+<p>Using &quot;find&quot; to find any file with the extension of &quot;.txt&quot;
+tryhackme@linux1:<del>$ find -name *.txt
+./folder1/passwords.txt
+./Documents/todo.txt
+tryhackme@linux1:</del>$</p>
+<p>Find has managed to find:</p>
+<p>&quot;passwords.txt&quot; located within &quot;folder1&quot;
+&quot;todo.txt&quot; located within &quot;Documents&quot;
+That wasn't so tough, huh!</p>
+<p>Using Grep
+Another great utility that is a great one to learn about is the use of grep. The grep command allows us to search the contents of files for specific values that we are looking for.</p>
+<p>Take for example, the access log of a web server. In this case, the access.log of a web server has 244 entries.</p>
+<p>Using &quot;wc&quot; to count the number of entries in &quot;access.log&quot;
+tryhackme@linux1:<del>$ wc -l access.log
+244 access.log
+tryhackme@linux1:</del>$
+Using a command like cat isn't going to cut it too well here. Let's say for example if we wanted to search this log file to see the things that a certain user/IP address visited? Looking through 244 entries isn't all that efficient considering we want to find a specific value.</p>
+<p>We can use grep to search the entire contents of this file for any entries of the value that we are searching for. Going with the example of a web server's access log, we want to see everything that the IP address &quot;81.143.211.90&quot; has visited (note that this is fictional)</p>
+<p>Using &quot;grep&quot; to find any entries with the IP address of &quot;81.143.211.90&quot; in &quot;access.log&quot;
+tryhackme@linux1:<del>$ grep &quot;81.143.211.90&quot; access.log
+81.143.211.90 - - [25/Mar/2021:11:17 + 0000] &quot;GET / HTTP/1.1&quot; 200 417 &quot;-&quot; &quot;Mozilla/5.0 (Linux; Android 7.0; Moto G(4))&quot;
+tryhackme@linux1:</del>$
+&quot;Grep&quot; has searched through this file and has shown us any entries of what we've provided and that is contained within this log file for the IP.</p>
+<p>Linux operators are a fantastic way to power up your knowledge of working with Linux. There are a few important operators that are worth noting. We'll cover the basics and break them down accordingly to bite-sized chunks.</p>
+<p>At an overview, I'm going to be showcasing the following operators:</p>
+<p>Symbol / Operator	Description
+&amp;	This operator allows you to run commands in the background of your terminal.
+&amp;&amp;	This operator allows you to combine multiple commands together in one line of your terminal.
+&gt;	This operator is a redirector - meaning that we can take the output from a command (such as using cat to output a file) and direct it elsewhere.
+&gt;&gt;	
+This operator does the same function of the &gt; operator but appends the output rather than replacing (meaning nothing is overwritten).</p>
+<p>Let's cover these in a bit more detail.</p>
+<p>Operator &quot;&amp;&quot;
+This operator allows us to execute commands in the background. For example, let's say we want to copy a large file. This will obviously take quite a long time and will leave us unable to do anything else until the file successfully copies.</p>
+<p>The &quot;&amp;&quot; shell operator allows us to execute a command and have it run in the background (such as this file copy) allowing us to do other things!</p>
+<p>Operator &quot;&amp;&amp;&quot;
+This shell operator is a bit misleading in the sense of how familiar is to its partner &quot;&amp;&quot;. Unlike the &quot;&amp;&quot; operator, we can use &quot;&amp;&amp;&quot; to make a list of commands to run for example command1 &amp;&amp; command2. However, it's worth noting that command2 will only run if command1 was successful.</p>
+<p>Operator &quot;&gt;&quot;
+This operator is what's known as an output redirector. What this essentially means is that we take the output from a command we run and send that output to somewhere else.</p>
+<p>A great example of this is redirecting the output of the echo command that we learned in Task 4. Of course, running something such as echo howdy will return &quot;howdy&quot; back to our terminal — that isn't super useful. What we can do instead, is redirect &quot;howdy&quot; to something such as a new file!</p>
+<p>Let's say we wanted to create a file named &quot;welcome&quot; with the message &quot;hey&quot;. We can run echo hey &gt; welcome where we want the file created with the contents &quot;hey&quot; like so:</p>
+<p>Using the &gt; Operator
+tryhackme@linux1:<del>$ echo hey &gt; welcome
+Using cat to output the &quot;welcome&quot; file
+tryhackme@linux1:</del>$ cat welcome
+hey
+Note: If the file i.e. &quot;welcome&quot; already exists, the contents will be overwritten!</p>
+<p>Operator &quot;&gt;&gt;&quot;
+This operator is also an output redirector like in the previous operator (&gt;) we discussed. However, what makes this operator different is that rather than overwriting any contents within a file, for example, it instead just puts the output at the end.</p>
+<p>Following on with our previous example where we have the file &quot;welcome&quot; that has the contents of &quot;hey&quot;. If were to use echo to add &quot;hello&quot; to the file using the &gt; operator, the file will now only have &quot;hello&quot; and not &quot;hey&quot;.</p>
+<p>The &gt;&gt; operator allows to append the output to the bottom of the file — rather than replacing the contents like so:</p>
+<p>Using the &gt;&gt; Operator
+tryhackme@linux1:<del>$ echo hello &gt;&gt; welcome
+Using cat to output the &quot;welcome&quot; file
+tryhackme@linux1:</del>$ cat welcome
+hey
+hello</p>
+<p>Nice work on getting to this stage! We covered quite a bit for your first interactions with Linux. However, these are the most essential/functions you're going to be using whenever you interact with a Linux machine.</p>
+<p>I hope this room hasn't been too daunting for you to power-on through with. It's as I previously mentioned, you're going to become familiar with these things very quickly because of how often you're going to be using them.</p>
+<p>To quickly recap, we've covered the following:</p>
+<p>Understanding why Linux is so commonplace today
+Interacting with your first-ever Linux machine!
+Ran some of the most fundamental commands
+Had an introduction to navigating around the filesystem &amp; how we can use commands like find and grep to make finding data even more efficient!
+Power up your commands by learning about some of the important shell operators.
+Take some time to have a play around in this room. When you feel a little bit more comfortable, progress onto Linux Fundamentals Part 2</p>
+<p>Welcome to the second part of the reworked &quot;Linux Fundamentals&quot; series. We'll be applying our knowledge from the first installment in this series, so I highly recommend you completing that room before proceeding further.</p>
+<p>In part 2, we'll be ditching the in-browser functionality and help you get started in what is a fundamental skill in being able to login to and control the terminals of remote machines. Not only this, but the room will also have you:</p>
+<p>Unlocking the potential of your first few commands by introducing you to using flags and arguments
+Advancing your knowledge of the filesystem to perform some more useful commands such as copying and moving files
+Discovering how access to files and folders is managed and how we can determine our access.</p>
+<p>Running your first few scripts and executables!</p>
+<p>The in-browser functionality was used in Linux Fundamentals Part 1 to get you directly connected to your first ever Linux machine without any hassle.</p>
+<p>In fact, the in-browser functionality uses the exact same protocol that we are going to be using today. This protocol is called Secure Shell or SSH for short and is the common means of connecting to and interacting with the command line of a remote Linux machine.</p>
+<p>We will be deploying two machines in this room:</p>
+<p>Your Linux machine
+The TryHackMe AttackBox
+What is SSH &amp; how Does it Work?</p>
+<p>Secure Shell or SSH simply is a protocol between devices in an encrypted form. Using cryptography, any input we send in a human-readable format is encrypted for travelling over a network -- where it is then unencrypted once it reaches the remote machine, such as in the diagram below.</p>
+<p>You can learn about the various types of encryption on a TryHackMe room. But for now, we only need to understand that:</p>
+<p>SSH allows us to remotely execute commands on another device remotely.
+Any data sent between the devices is encrypted when it is sent over a network such as the Internet
+Deploying Your Linux Machine</p>
+<p>Press the green &quot;Start Machine&quot; button on the top-right of this task and then scroll to the top of the page to see the deployment information like so:</p>
+<p>The IP address displayed is the address of your Linux machine that you will be logging into using SSH. Take note of this for now.</p>
+<p>Deploying the TryHackMe AttackBox</p>
+<p>Looking at the top of the page, press the &quot;Start AttackBox&quot; button to deploy the TryHackMe AttackBox that we will be interacting with. The TryHackMe AttackBox is a Ubuntu Linux machine that is hosted online in the cloud and can be interacted with via your browser. You will be using this to interact with the machine that you deploy in this task.</p>
+<p>Using SSH to Login to Your Linux Machine</p>
+<p>The syntax to use SSH is very simple. We only need to provide two things:</p>
+<ol>
+<li>
+<p>The IP address of the remote machine</p>
+</li>
+<li>
+<p>Correct credentials to a valid account to login with on the remote machine</p>
+</li>
+</ol>
+<p>For this room, we will be logging in as &quot;tryhackme&quot;, whose password is &quot;tryhackme&quot; without the quotation (&quot;&quot;) marks. Let's use the IP address of the machine displayed in the card at the top of the room as the IP address and this user, to construct a command to log in to the remote machine using SSH. The command to do so is ssh and then the username of the account, @ the IP address of the machine.</p>
+<p>But first, we need to open a terminal on the TryHackMe AttackBox. There is an icon placed on the desktop named &quot;Terminal&quot;. And now, we can proceed to input commands.</p>
+<p>For example: ssh tryhackme@MACHINE_IP  . Replacing the IP address with the IP address for your Linux target machine. Once executed, we will then be asked to trust the host and then provide a password for the &quot;tryhackme&quot; account, which is also &quot;tryhackme&quot;.</p>
+<p>Now that we are connected, any commands that we execute will now execute on the remote machine -- not our own.</p>
+<p>Note: When you type a password into an ssh login prompt there is no visible feedback -- you will not be able to see any text or symbols appear as you type the password. It is still working, however, so just type the password and press enter to login.</p>
+<p>A majority of commands allow for arguments to be provided. These arguments are identified by a hyphen and a certain keyword known as flags or switches.</p>
+<p>We'll later discuss how we can identify what commands allow for arguments to be provided and understanding what these do exactly.</p>
+<p>When using a command, unless otherwise specified, it will perform its default behaviour. For example, ls lists the contents of the working directory. However, hidden files are not shown. We can use flags and switches to extend the behaviour of commands.</p>
+<p>Using our ls example, ls informs us that there is only one folder named &quot;folder1&quot; as highlighted in the screenshot below. Note that the contents in the screenshots below are only examples.</p>
+<p>Using ls to view the contents of a directory
+tryhackme@linux2:<del>$ ls
+folder1
+tryhackme@linux2:</del>$
+However, after using the -a argument (short for --all), we now suddenly have an output with a few more files and folders such as &quot;.hiddenfolder&quot;. Files and folders with &quot;.&quot; are hidden files.</p>
+<p>Using ls to view hidden folders
+tryhackme@linux2:<del>$ ls -a 
+.hiddenfolder folder1
+tryhackme@linux2:</del>$
+Commands that accept these will also have a --help option. This option will list the possible options that the command accepts, provide a brief description and example of how to use it.</p>
+<p>Listing the options we can use with ls
+tryhackme@linux2:~$ ls --help
+Usage: ls [OPTION]... [FILE]...
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.</p>
+<p>Mandatory arguments to long options are mandatory for short options too.
+-a, --all                  do not ignore entries starting with .
+-A, --almost-all           do not list implied . and ..
+--author               with -l, print the author of each file
+-b, --escape               print C-style escapes for nongraphic characters
+--block-size=SIZE      with -l, scale sizes by SIZE when printing them;
+e.g., '--block-size=M'; see SIZE format below
+-B, --ignore-backups       do not list implied entries ending with ~
+-c                         with -lt: sort by, and show, ctime (time of last
+modification of file status information);
+with -l: show ctime and sort by name;
+otherwise: sort by ctime, newest first
+-C                         list entries by columns
+--color[=WHEN]         colorize the output; WHEN can be 'always' (default
+if omitted), 'auto', or 'never'; more info below
+-d, --directory            list directories themselves, not their contents
+-D, --dired                generate output designed for Emacs' dired mode
+-f                         do not sort, enable -aU, disable -ls --color
+-F, --classify             append indicator (one of <em>/=&gt;@|) to entries
+--file-type            likewise, except do not append '</em>'
+--format=WORD          across -x, commas -m, horizontal -x, long -l,
+single-column -1, verbose -l, vertical -C
+--full-time            like -l --time-style=full-iso
+-g                         like -l, but do not list owner
+--group-directories-first
+tryhackme@linux2:~$
+This option is, in fact, a formatted output of what is called the man page (short for manual), which contains documentation for Linux commands and applications.</p>
+<p>The Man(ual) Page</p>
+<p>The manual pages are a great source of information for both system commands and applications available on both a Linux machine, which is accessible on the machine itself and online.</p>
+<p>To access this documentation, we can use the man command and then provide the command we want to read the documentation for. Using our ls example, we would use man ls to view the manual pages for ls like so:</p>
+<p>Listing the options we can use with ls
+tryhackme@linux2:~$ man ls
+LS(1)                                               User Commands                                               LS(1)</p>
+<p>NAME
+ls - list directory contents</p>
+<p>SYNOPSIS
+ls [OPTION]... [FILE]...</p>
+<p>DESCRIPTION
+List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of
+-cftuvSUX nor --sort is specified.</p>
+<pre><code>   Mandatory arguments to long options are mandatory for short options too.
+
+   -a, --all
+          do not ignore entries starting with .
+
+   -A, --almost-all
+          do not list implied . and ..
+
+   --author
+          with -l, print the author of each file
+
+   -b, --escape
+          print C-style escapes for nongraphic characters
+
+   --block-size=SIZE
+          with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below
+</code></pre>
+<p>Manual page ls(1) line 1 (press h for help or q to quit)</p>
+<p>We covered some of the most fundamental commands when interacting with the filesystem on the Linux machine. For example, we covered how to list and find the contents of folders using ls and find and navigating the filesystem using cd. </p>
+<p>In this task, we're going to learn some more commands for interacting with the filesystem to allow us to:</p>
+<p>create files and folders
+move files and folders
+delete files and folders
+More specifically, the following commands:</p>
+<p>Command	Full Name	Purpose
+touch	touch	Create file
+mkdir	make directory	Create a folder
+cp	copy	Copy a file or folder
+mv	move	Move a file or folder
+rm	remove	Remove a file or folder
+file	file	Determine the type of a file
+Protip: Similarly to using cat, we can provide full file paths, i.e. directory1/directory2/note for all of these commands</p>
+<p>Creating Files and Folders (touch, mkdir)</p>
+<p>Creating files and folders on Linux is a simple process. First, we'll cover creating a file. The touch command takes exactly one argument -- the name we want to give the file we create. For example, we can create the file &quot;note&quot; by using touch note. It's worth noting that touch simply creates a blank file. You would need to use commands like echo or text editors such as nano to add content to the blank file.</p>
+<p>Using touch to create a new file
+tryhackme@linux2:<del>$ touch note
+tryhackme@linux2:</del>$ ls<br />
+folder1 note
+This is a similar process for making a folder, which just involves using the mkdir command and again providing the name that we want to assign to the directory. For example, creating the directory &quot;mydirectory&quot; using mkdir mydirectory.</p>
+<p>Creating a new directory with mkdir
+tryhackme@linux2:<del>$ mkdir mydirectory
+tryhackme@linux2:</del>$ ls<br />
+folder1 mydirectory note</p>
+<p>Removing Files and Folders (rm)</p>
+<p>rm is extraordinary out of the commands that we've covered so far. You can simply remove files by using rm. However, you need to provide the -R switch alongside the name of the directory you wish to remove.</p>
+<p>Using rm to remove a file
+tryhackme@linux2:<del>$ rm note
+tryhackme@linux2:</del>$ ls<br />
+folder1 mydirectory
+Using rm recursively to remove a directory
+tryhackme@linux2:<del>$ rm -R mydirectory
+tryhackme@linux2:</del>$ ls<br />
+folder1</p>
+<p>Copying and Moving Files and Folders (cp, mv)</p>
+<p>Copying and moving files is an important functionality on a Linux machine. Starting with cp, this command takes two arguments:</p>
+<ol>
+<li>
+<p>the name of the existing file</p>
+</li>
+<li>
+<p>the name we wish to assign to the new file when copying</p>
+</li>
+</ol>
+<p>cp copies the entire contents of the existing file into the new file. In the screenshot below, we are copying &quot;note&quot; to &quot;note2&quot;.</p>
+<p>Using cp to copy a file
+tryhackme@linux2:<del>$ cp note note2
+tryhackme@linux2:</del>$ ls<br />
+folder1 note note2
+Moving a file takes two arguments, just like the cp command. However, rather than copying and/or creating a new file, mv will merge or modify the second file that we provide as an argument. Not only can you use mv to move a file to a new folder, but you can also use mv to rename a file or folder. For example, in the screenshot below, we are renaming the file &quot;note2&quot; to be named &quot;note3&quot;. &quot;note3&quot; will now have the contents of &quot;note2&quot;. </p>
+<p>Using mv to move a file
+tryhackme@linux2:<del>$ mv note2 note3
+tryhackme@linux2:</del>$ ls<br />
+folder1 note note3</p>
+<p>Determining File Type</p>
+<p>What is often misleading and often catches people out is making presumptions from files as to what their purpose or contents may be. Files usually have what's known as an extension to make this easier. For example, text files usually have an extension of &quot;.txt&quot;. But this is not necessary.</p>
+<p>So far, the files we have used in our examples haven't had an extension. Without knowing the context of why the file is there -- we don't really know its purpose. Enter the file command. This command takes one argument. For example, we'll use file to confirm whether or not the &quot;note&quot; file in our examples is indeed a text file, like so file note.</p>
+<p>Using file to determine the contents of a file
+tryhackme@linux2:~$ file note
+note: ASCII text</p>
+<p>As you would have already found out by now, certain users cannot access certain files or folders. We've previously explored some commands that can be used to determine what access we have and where it leads us. </p>
+<p>In our previous tasks, we learned how to extend the use of commands through flags and switches. Take, for example, the ls command, which lists the contents of the current directory. When using the -l switch, we can see ten columns such as in the screenshot below. However, we're only interested in the first three columns:</p>
+<p>Using ls -lh to list the permissions of all files in the directory
+tryhackme@linux2:~$ ls -lh
+-rw-r--r-- 1 cmnatic cmnatic 0 Feb 19 10:37 file1
+-rw-r--r-- 8 cmnatic cmnatic 0 Feb 19 10:37 file2
+Although intimidating, these three columns are very important in determining certain characteristics of a file or folder and whether or not we have access to it. A file or folder can have a couple of characteristics that determine both what actions are allowed and what user or group has the ability to perform the given action -- such as the following:</p>
+<p>Read
+Write
+Execute 
+Using su to switch to user2</p>
+<p>tryhackme@linux2:~$ su user2
+Password:
+user2@linux2:/home/tryhackme$
+Let's use the &quot;cmnatic.pem&quot; file in our initial screenshot at the top of this task. It has the &quot;-&quot; indicator highlighting that it is a file and then &quot;rw&quot; followed after. This means that only the owner of the file can read and write to this&quot;cmnatic.pem&quot; file but cannot execute it.</p>
+<p>Briefly: The Differences Between Users &amp; Groups</p>
+<p>We briefly explored this in Linux fundamentals part 1 (namely, the differences between a regular user and a system user). The great thing about Linux is that permissions can be so granular, that whilst a user technically owns a file, if the permissions have been set, then a group of users can also have either the same or a different set of permissions to the exact same file without affecting the file owner itself.</p>
+<p>Let's put this into a real-world context; the system user that runs a web server must have permissions to read and write files for an effective web application. However, companies such as web hosting companies will have to want to allow their customers to upload their own files for their website without being the webserver system user -- compromising the security of every other customer. </p>
+<p>We'll learn the commands necessary to switch between users below.</p>
+<p>Switching Between Users</p>
+<p>Switching between users on a Linux install is easy work thanks to the su command. Unless you are the root user (or using root permissions through sudo), then you are required to know two things to facilitate this transition of user accounts:</p>
+<p>The user we wish to switch to
+The user's password
+The su command takes a couple of switches that may be of relevance to you. For example, executing a command once you log in or specifying a specific shell to use. I encourage you to read the man page for su to find out more. However, I will cover the -l or --login switch.</p>
+<p>Simply, by providing the -l switch to su, we start a shell that is much more similar to the actual user logging into the system - we inherit a lot more properties of the new user, i.e., environment variables and the likes. </p>
+<p>Using su to switch to user2 interactively
+tryhackme@linux2:~$ su user2
+Password:
+user2@linux2:/home/tryhackme$
+For example, when using su to switch to &quot;user2&quot;, our new session drops us into our previous user's home directory. </p>
+<p>Using su to switch to user2 interactively
+tryhackme@linux2:<del>$ su -l user2
+Password:
+user2@linux2:</del>$ pwd
+user2@:/home/user2$
+Where now, after using -l, our new session has dropped us into the home directory of &quot;user&quot; automatically. </p>
+<p>/etc</p>
+<p>This root directory is one of the most important root directories on your system. The etc folder (short for etcetera) is a commonplace location to store system files that are used by your operating system. </p>
+<p>For example, the sudoers file highlighted in the screenshot below contains a list of the users &amp; groups that have permission to run sudo or a set of commands as the root user.</p>
+<p>Also highlighted below are the &quot;passwd&quot; and &quot;shadow&quot; files. These two files are special for Linux as they show how your system stores the passwords for each user in encrypted formatting called sha512.</p>
+<p>Some notable contents of the /etc directory
+tryhackme@linux2:/etc$ ls
+shadow passwd sudoers sudoers.d</p>
+<p>/var</p>
+<p>The &quot;/var&quot; directory, with &quot;var&quot; being short for variable data,  is one of the main root folders found on a Linux install. This folder stores data that is frequently accessed or written by services or applications running on the system. For example, log files from running services and applications are written here (/var/log), or other data that is not necessarily associated with a specific user (i.e., databases and the like).</p>
+<p>Some notable contents of the /var directory
+tryhackme@linux2:/var$ ls
+backups log opt tmp</p>
+<p>/root</p>
+<p>Unlike the /home directory, the /root folder is actually the home for the &quot;root&quot; system user. There isn't anything more to this folder other than just understanding that this is the home directory for the &quot;root&quot; user. But, it is worth a mention as the logical presumption is that this user would have their data in a directory such as &quot;/home/root&quot; by default.</p>
+<p>Some notable contents of the /root directory
+root@linux2:~# ls
+myfile myfolder passwords.xlsx</p>
+<p>/tmp</p>
+<p>This is a unique root directory found on a Linux install. Short for &quot;temporary&quot;, the /tmp directory is volatile and is used to store data that is only needed to be accessed once or twice. Similar to the memory on your computer, once the computer is restarted, the contents of this folder are cleared out.</p>
+<p>What's useful for us in pentesting is that any user can write to this folder by default. Meaning once we have access to a machine, it serves as a good place to store things like our enumeration scripts.</p>
+<p>Some notable contents of the /tmp directory
+root@linux2:/tmp# ls
+todelete trash.txt rubbish.bin</p>
+<p>Nice work! This room was quite theory-heavy and covered quite a range of the fundamentals in getting you familiar with Linux. To quickly recap, this room taught you:</p>
+<p>How to connect to a Linux machine remotely using SSH
+Advancing your use of commands by providing flags, switches and where you can go to learn about these for each command (man pages)
+Some more commands that you'll frequently be using to interact with the filesystem and its contents
+A brief introduction to file permissions &amp; switching users
+A summary paragraph of the important root directories on a Ubuntu Linux install and how we may be able to use the data stored within these.
+I encourage you to go through this room again once or twice to gain some familiarity with the concepts. After all, practice makes perfect! </p>
+<p>Welcome to part three (and the finale) of the Linux Fundamentals module. So far, throughout the series, you have got hands-on with some fundamental concepts and used some important commands. This room is going to showcase some useful utilities and applications that you are likely to use day-to-day. You're also going to advance your Linux-fu skills by learning about automation, package management, and service/application logging. </p>
+<p>Throughout the series so far, we have only stored text in files using a combination of the echo command and the pipe operators (&gt; and &gt;&gt;). This isn't an efficient way to handle data when you're working with files with multiple lines and the sorts!</p>
+<p>Introducing terminal text editors</p>
+<p>There are a few options that you can use, all with a variety of friendliness and utility. This task is going to introduce you to nano but also show you an alternative named VIM (which TryHackMe has a room dedicated to!)</p>
+<p>Nano</p>
+<p>It is easy to get started with Nano! To create or edit a file using nano, we simply use nano filename -- replacing &quot;filename&quot; with the name of the file you wish to edit.</p>
+<p>Introducing Nano
+tryhackme@linux3:/tmp# nano myfile
+GNU nano 4.8                                             myfile</p>
+<p>^G Get Help    ^O Write Out   ^W Where Is    ^K Cut Text    ^J Justify     ^C Cur Pos     M-U Undo       M-A Mark Text
+^X Exit        ^R Read File   ^\ Replace     ^U Paste Text  ^T To Spell    ^_ Go To Line  M-E Redo       M-6 Copy Text
+Once we press enter to execute the command, nano will launch! Where we can just begin to start entering or modifying our text. You can navigate each line using the &quot;up&quot; and &quot;down&quot; arrow keys or start a new line using the &quot;Enter&quot; key on your keyboard.</p>
+<p>Using Nano to write text
+tryhackme@linux3:/tmp# nano myfile
+GNU nano 4.8                                             myfile                                             Modified</p>
+<p>Hello TryHackMe
+I can write things into &quot;myfile&quot;</p>
+<p>^G Get Help    ^O Write Out   ^W Where Is    ^K Cut Text    ^J Justify     ^C Cur Pos     M-U Undo       M-A Mark Text
+^X Exit        ^R Read File   ^\ Replace     ^U Paste Text  ^T To Spell    ^_ Go To Line  M-E Redo       M-6 Copy Text
+Nano has a few features that are easy to remember &amp; covers the most general things you would want out of a text editor, including:</p>
+<p>Searching for text
+Copying and Pasting
+Jumping to a line number
+Finding out what line number you are on
+You can use these features of nano by pressing the &quot;Ctrl&quot; key (which is represented as an ^ on Linux)  and a corresponding letter. For example, to exit, we would want to press &quot;Ctrl&quot; and &quot;X&quot; to exit Nano.</p>
+<p>VIM</p>
+<p>VIM is a much more advanced text editor. Whilst you're not expected to know all advanced features, it's helpful to mention it for powering up your Linux skills.</p>
+<p>Some of VIM's benefits, albeit taking a much longer time to become familiar with, includes:</p>
+<p>Customisable - you can modify the keyboard shortcuts to be of your choosing
+Syntax Highlighting - this is useful if you are writing or maintaining code, making it a popular choice for software developers
+VIM works on all terminals where nano may not be installed
+There are a lot of resources such as cheatsheets, tutorials, and the sorts available to you use.
+TryHackMe has a room showcasing VIM if you wish to learn more about this editor!</p>
+<p>Downloading Files (Wget)</p>
+<p>A pretty fundamental feature of computing is the ability to transfer files. For example, you may want to download a program, a script, or even a picture. Thankfully for us, there are multiple ways in which we can retrieve these files.</p>
+<p>We're going to cover the use of wget .  This command allows us to download files from the web via HTTP -- as if you were accessing the file in your browser. We simply need to provide the address of the resource that we wish to download. For example, if I wanted to download a file named &quot;myfile.txt&quot; onto my machine, assuming I knew the web address it -- it would look something like this:</p>
+<p>wget https://assets.tryhackme.com/additional/linux-fundamentals/part3/myfile.txt</p>
+<p>Transferring Files From Your Host - SCP (SSH)</p>
+<p>Secure copy, or SCP, is just that -- a means of securely copying files. Unlike the regular cp command, this command allows you to transfer files between two computers using the SSH protocol to provide both authentication and encryption.</p>
+<p>Working on a model of SOURCE and DESTINATION, SCP allows you to:</p>
+<p>Copy files &amp; directories from your current system to a remote system
+Copy files &amp; directories from a remote system to your current system
+Provided that we know usernames and passwords for a user on your current system and a user on the remote system. For example, let's copy an example file from our machine to a remote machine, which I have neatly laid out in the table below:</p>
+<p>Variable	Value
+The IP address of the remote system 	192.168.1.30
+User on the remote system	ubuntu
+Name of the file on the local system	important.txt
+Name that we wish to store the file as on the remote system	transferred.txt
+With this information, let's craft our scp command (remembering that the format of SCP is just SOURCE and DESTINATION)</p>
+<p>scp important.txt ubuntu@192.168.1.30:/home/ubuntu/transferred.txt</p>
+<p>And now let's reverse this and layout the syntax for using scp to copy a file from a remote computer that we're not logged into </p>
+<p>Variable	Value
+IP address of the remote system	192.168.1.30
+User on the remote system	ubuntu
+Name of the file on the remote system	documents.txt
+Name that we wish to store the file as on our system	notes.txt
+The command will now look like the following: scp ubuntu@192.168.1.30:/home/ubuntu/documents.txt notes.txt </p>
+<p>Serving Files From Your Host - WEB</p>
+<p>Ubuntu machines come pre-packaged with python3. Python helpfully provides a lightweight and easy-to-use module called &quot;HTTPServer&quot;. This module turns your computer into a quick and easy web server that you can use to serve your own files, where they can then be downloaded by another computing using commands such as curl and wget. </p>
+<p>Python3's &quot;HTTPServer&quot; will serve the files in the directory where you run the command, but this can be changed by providing options that can be found within the manual pages. Simply, all we need to do is run python3 -m  http.server in the terminal to start the module! In the snippet below, we are serving from a directory called &quot;webserver&quot;, which has a single named &quot;file&quot;.</p>
+<p>Using Python to start a web server
+tryhackme@linux3:/webserver# python3 -m http.server
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+Now, let's use wget to download the file using the MACHINE_IP address and the name of the file. Remember, because the python3 server is running port 8000, you will need to specify this within your wget command. For example:</p>
+<p>An example wget command of a web server running on port 8000
+tryhackme@mymachine:~# wget http://MACHINE_IP:8000/myfile
+Note, you will need to open a new terminal to use wget and leave the one that you have started the Python3 web server in. This is because, once you start the Python3 web server, it will run in that terminal until you cancel it.</p>
+<p>Let's take a look in the snippet below as an example:
+Downloading a file from our webserver using wget
+tryhackme@linux3:/tmp# wget http://MACHINE_IP:8000/file</p>
+<p>2021-05-04 14:26:16  http://127.0.0.1:8000/file
+Connecting to http://127.0.0.1:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 51095 (50K) [text]
+Saving to: ‘file’</p>
+<p>file                    100%[=================================================&gt;]  49.90K  --.-KB/s    in 0.04s</p>
+<p>2021-05-04 14:26:16 (1.31 MB/s) - ‘file’ saved [51095/51095]
+Remember, you will need to run the wget command in another terminal (while keeping the terminal that is running the Python3 server active). An example of this on the TryHackMe AttackBox is below:</p>
+<p>One flaw with this module is that you have no way of indexing, so you must know the exact name and location of the file that you wish to use. This is why I prefer to use Updog. What's Updog? A more advanced yet lightweight webserver. But for now, let's stick to using Python's &quot;HTTP Server&quot;.</p>
+<p>Processes are the programs that are running on your machine. They are managed by the kernel, where each process will have an ID associated with it, also known as its PID. The PID increments for the order In which the process starts. I.e. the 60th process will have a PID of 60.</p>
+<p>Viewing Processes</p>
+<p>We can use the friendly ps command to provide a list of the running processes as our user's session and some additional information such as its status code, the session that is running it, how much usage time of the CPU it is using, and the name of the actual program or command that is being executed:</p>
+<p>Note how in the screenshot above, the second process ps has a PID of 204, and then in the command below it, this is then incremented to 205.</p>
+<p>To see the processes run by other users and those that don't run from a session (i.e. system processes), we need to provide aux to the ps command like so: ps aux</p>
+<p>Note we can see a total of 5 processes -- note how we now have &quot;root&quot;  and &quot;cmnatic&quot;</p>
+<p>Another very useful command is the top command; top gives you real-time statistics about the processes running on your system instead of a one-time view. These statistics will refresh every 10 seconds, but will also refresh when you use the arrow keys to browse the various rows. Another great command to gain insight into your system is via the top command</p>
+<p>Managing Processes</p>
+<p>You can send signals that terminate processes; there are a variety of types of signals that correlate to exactly how &quot;cleanly&quot; the process is dealt with by the kernel. To kill a command, we can use the appropriately named kill command and the associated PID that we wish to kill. i.e., to kill PID 1337, we'd use kill 1337.</p>
+<p>Below are some of the signals that we can send to a process when it is killed:</p>
+<p>SIGTERM - Kill the process, but allow it to do some cleanup tasks beforehand
+SIGKILL - Kill the process - doesn't do any cleanup after the fact
+SIGSTOP - Stop/suspend a process</p>
+<p>How do Processes Start?</p>
+<p>Let's start off by talking about namespaces. The Operating System (OS) uses namespaces to ultimately split up the resources available on the computer to (such as CPU, RAM and priority) processes. Think of it as splitting your computer up into slices -- similar to a cake. Processes within that slice will have access to a certain amount of computing power, however, it will be a small portion of what is actually available to every process overall.</p>
+<p>Namespaces are great for security as it is a way of isolating processes from another -- only those that are in the same namespace will be able to see each other.</p>
+<p>We previously talked about how PID works, and this is where it comes into play. The process with an ID of 0 is a process that is started when the system boots. This process is the system's init on Ubuntu, such as systemd, which is used to provide a way of managing a user's processes and sits in between the operating system and the user. </p>
+<p>For example, once a system boots and it initialises, systemd is one of the first processes that are started. Any program or piece of software that we want to start will start as what's known as a child process of systemd. This means that it is controlled by systemd, but will run as its own process (although sharing the resources from systemd) to make it easier for us to identify and the likes.</p>
+<p>Getting Processes/Services to Start on Boot</p>
+<p>Some applications can be started on the boot of the system that we own. For example, web servers, database servers or file transfer servers. This software is often critical and is often told to start during the boot-up of the system by administrators.</p>
+<p>In this example, we're going to be telling the apache web server to be starting apache manually and then telling the system to launch apache2 on boot.</p>
+<p>Enter the use of systemctl -- this command allows us to interact with the systemd process/daemon. Continuing on with our example, systemctl is an easy to use command that takes the following formatting: systemctl [option] [service]</p>
+<p>For example, to tell apache to start up, we'll use systemctl start apache2. Seems simple enough, right? Same with if we wanted to stop apache, we'd just replace the [option] with stop (instead of start like we provided)</p>
+<p>We can do four options with systemctl:</p>
+<p>Start
+Stop
+Enable
+Disable
+An Introduction to Backgrounding and Foregrounding in Linux</p>
+<p>Processes can run in two states: In the background and in the foreground. For example, commands that you run in your terminal such as &quot;echo&quot; or things of that sort will run in the foreground of your terminal as it is the only command provided that hasn't been told to run in the background. &quot;Echo&quot; is a great example as the output of echo will return to you in the foreground, but wouldn't in the background - take the screenshot below, for example.</p>
+<p>Here we're running echo &quot;Hi THM&quot; , where we expect the output to be returned to us like it is at the start. But after adding the &amp; operator to the command, we're instead just given the ID of the echo process rather than the actual output -- as it is running in the background.</p>
+<p>This is great for commands such as copying files because it means that we can run the command in the background and continue on with whatever further commands we wish to execute (without having to wait for the file copy to finish first)</p>
+<p>We can do the exact same when executing things like scripts -- rather than relying on the &amp; operator, we can use Ctrl + Z on our keyboard to background a process. It is also an effective way of &quot;pausing&quot; the execution of a script or command like in the example below:</p>
+<p>This script will keep on repeating &quot;This will keep on looping until I stop!&quot; until I stop or suspend the process. By using Ctrl + Z (as indicated by T^Z). Now our terminal is no longer filled up with messages -- until we foreground it, which we will discuss below.</p>
+<p>Foregrounding a process</p>
+<p>Now that we have a process running in the background, for example, our script &quot;background.sh&quot; which can be confirmed by using the ps aux command, we can back-pedal and bring this process back to the foreground to interact with.</p>
+<p>With our process backgrounded using either Ctrl + Z or the &amp; operator, we can use fg to bring this back to focus like below, where we can see the fg command is being used to bring the background process back into use on the terminal, where the output of the script is now returned to us.</p>
+<p>Users may want to schedule a certain action or task to take place after the system has booted. Take, for example, running commands, backing up files, or launching your favourite programs on, such as Spotify or Google Chrome.</p>
+<p>We're going to be talking about the cron process, but more specifically, how we can interact with it via the use of crontabs . Crontab is one of the processes that is started during boot, which is responsible for facilitating and managing cron jobs.</p>
+<p>A crontab is simply a special file with formatting that is recognised by the cron process to execute each line step-by-step. Crontabs require 6 specific values:</p>
+<p>Value	Description
+MIN	What minute to execute at
+HOUR	What hour to execute at
+DOM	What day of the month to execute at
+MON	What month of the year to execute at
+DOW	What day of the week to execute at
+CMD	The actual command that will be executed.</p>
+<p>Let's use the example of backing up files. You may wish to backup &quot;cmnatic&quot;'s  &quot;Documents&quot; every 12 hours. We would use the following formatting: </p>
+<p>0 */12 * * * cp -R /home/cmnatic/Documents /var/backups/</p>
+<p>An interesting feature of crontabs is that these also support the wildcard or asterisk (*). If we do not wish to provide a value for that specific field, i.e. we don't care what month, day, or year it is executed -- only that it is executed every 12 hours, we simply just place an asterisk.</p>
+<p>This can be confusing to begin with, which is why there are some great resources such as the online &quot;Crontab Generator&quot; that allows you to use a friendly application to generate your formatting for you! As well as the site &quot;Cron Guru&quot;!</p>
+<p>Crontabs can be edited by using crontab -e, where you can select an editor (such as Nano) to edit your crontab.</p>
+<p>Introducing Packages &amp; Software Repos</p>
+<p>When developers wish to submit software to the community, they will submit it to an  &quot;apt&quot; repository. If approved, their programs and tools will be released into the wild. Two of the most redeeming features of Linux shine to light here: User accessibility and the merit of open source tools.</p>
+<p>When using the ls command on a Ubuntu 20.04 Linux machine, these files serve as the gateway/registry. </p>
+<p>Whilst Operating System vendors will maintain their own repositories, you can also add community repositories to your list! This allows you to extend the capabilities of your OS. Additional repositories can be added by using the add-apt-repositorycommand or by listing another provider! For example, some vendors will have a repository that is closer to their geographical location.</p>
+<p>Managing Your Repositories (Adding and Removing)</p>
+<p>Normally we use the apt command to install software onto our Ubuntu system. The apt command is a part of the package management software also named apt. Apt contains a whole suite of tools that allows us to manage the packages and sources of our software, and to install or remove software at the same time.</p>
+<p>One method of adding repositories is to use the add-apt-repository command we illustrated above, but we're going to walk through adding and removing a repository manually. Whilst you can install software through the use of package installers such as dpkg, the benefits of apt means that whenever we update our system -- the repository that contains the pieces of software that we add also gets checked for updates. </p>
+<p>In this example, we're going to add the text editor Sublime Text to our Ubuntu machine as a repository as it is not a part of the default Ubuntu repositories. When adding software, the integrity of what we download is guaranteed by the use of what is called GPG (Gnu Privacy Guard) keys. These keys are essentially a safety check from the developers saying, &quot;here's our software&quot;. If the keys do not match up to what your system trusts and what the developers used, then the software will not be downloaded.</p>
+<p>So, to start, we need to add the GPG key for the developers of Sublime Text 3. (Note that TryHackMe instances do not have internet access and so we're not expecting you to add this to the machine that you deploy, as it would fail.)</p>
+<ol>
+<li>
+<p>Let's download the GPG key and use apt-key to trust it:  wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -</p>
+</li>
+<li>
+<p>Now that we have added this key to our trusted list, we can now add Sublime Text 3's repository to our apt sources list. A good practice is to have a separate file for every different community/3rd party repository that we add.</p>
+</li>
+</ol>
+<p>2.1. Let's create a file named sublime-text.list in /etc/apt/sources.list.d and enter the repository information like so:</p>
+<p>2.2. And now use Nano or a text editor of your choice to add &amp; save the Sublime Text 3 repository into this newly created file:</p>
+<p>2.3. After we have added this entry, we need to update apt to recognise this new entry -- this is done using the apt update command</p>
+<p>2.4. Once successfully updated, we can now proceed to install the software that we have trusted and added to apt using apt install sublime-text</p>
+<p>Removing packages is as easy as reversing. This process is done by using the add-apt-repository --remove ppa:PPA_Name/ppa command or by manually deleting the file that we previously added to. Once removed, we can just use apt remove [software-name-here] i.e. apt remove sublime-text</p>
+<p>We briefly touched upon log files and where they can be found in Linux Fundamentals Part 1. However, let's quickly recap. Located in the /var/log directory, these files and folders contain logging information for applications and services running on your system. The Operating System  (OS) has become pretty good at automatically managing these logs in a process that is known as &quot;rotating&quot;.</p>
+<p>I have highlighted some logs from three services running on a Ubuntu machine:</p>
+<p>An Apache2 web server
+Logs for the fail2ban service, which is used to monitor attempted brute forces, for example
+The UFW service which is used as a firewall</p>
+<p>These services and logs are a great way in monitoring the health of your system and protecting it. Not only that, but the logs for services such as a web server contain information about every single request - allowing developers or administrators to diagnose performance issues or investigate an intruder's activity. For example, the two types of log files below that are of interest:</p>
+<p>access log
+error log</p>
+<p>There are, of course, logs that store information about how the OS is running itself and actions that are performed by users, such as authentication attempts.</p>
+<p>Welcome to the end of the Linux Fundamentals module. Your familiarity with Linux will improve as you get to interact with it over time. Linux has the potential to do very powerful things with relative ease (as you have hopefully discovered throughout this module)</p>
+<p>To recap, this room introduced you to the following topics:</p>
+<p>Using terminal text editors
+General utilities such as downloading and serving contents using a python webserver
+A look into processes
+Maintaining &amp; automating your system by the use of crontabs, package management, and reviewing logs
+Continue your learning in some other TryHackMe rooms that are dedicated to Linux tools or utilities:</p>
+<p>Bash Scripting - https://tryhackme.com/room/bashscripting
+Regular Expressions - https://tryhackme.com/room/catregex</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../windows/privilege_escalation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../os/kali.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../windows/privilege_escalation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../os/kali.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
